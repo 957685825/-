@@ -60,7 +60,7 @@
 				</video>
 			</div>
 		</div>
-		<div class="qjbox">
+		<div class="qjbox" style="display: none;">
 			<div class="qjbg">
 				<img src="../../../../../assets/img/qjbg.png"/>
 				<div class="qjbtn">
