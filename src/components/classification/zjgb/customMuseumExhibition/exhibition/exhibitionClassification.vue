@@ -13,6 +13,7 @@
 			<div class="rightBox">
 				<router-link to="/exhibitionContent">
 					<div class="btnList">
+						<div class="mask"></div>
 						<img src="../../../../../assets/img/1.png" alt="" />
 						<p>千秋古关</p>
 					</div>

@@ -11,7 +11,7 @@
 			</ul>
 			<ul>
 				<li style="color: red;">玩转关博</li>
-				<li>关博影像</li>
+				<li><router-link to='/CustomMuseumVideo'>关博影像</router-link></li>
 				<li><router-link to='/exhibition902'>902艇展演</router-link></li>
 				<li><router-link to="/collectionList">藏品鉴赏</router-link></li>
 				<li><router-link to="/customMuseumSouvenir">关影留念</router-link></li>

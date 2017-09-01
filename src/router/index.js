@@ -36,6 +36,8 @@ import WcShow from '@/components/classification/gbfw/wcShow/wcShow.vue'
 import exhibition902 from '@/components/classification/wzgb/902Exhibition/902Exhibition.vue'
 //玩转关博/902艇展(详情)
 import exhibitionContent902 from '@/components/classification/wzgb/902Exhibition/exhibitionContent.vue'
+//玩转关博/关博影像
+import CustomMuseumVideo from '@/components/classification/wzgb/customMuseumVideo/customMuseumVideo.vue'
 //走进关博/关于安博
 import aboutMusem from '@/components/classification/zjgb/aboutCustomMuseum/about.vue'
 //走进关博/关于安博（分类介绍详情）
@@ -152,6 +154,13 @@ let router =  new vueRouter({
 		      component: exhibition902,
 		      meta: {
 		        title: '902艇展'
+		      }
+		    },{ //玩转关博/关博影像
+		      path: '/CustomMuseumVideo',
+		      name: 'CustomMuseumVideo',
+		      component: CustomMuseumVideo,
+		      meta: {
+		        title: '关博影像'
 		      }
 		    },{ //玩转关博/902艇展(详情)
 		      path: '/exhibitionContent902',
