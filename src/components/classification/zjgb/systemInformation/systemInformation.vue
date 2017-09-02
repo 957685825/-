@@ -1,5 +1,4 @@
 <template>
-	<!--展览展讯-->
 	<div id="exhibition">
 		<div class="swipeDiv">
 			<mt-swipe  :auto="4000" :show-indicators="false">
@@ -9,23 +8,33 @@
 			</mt-swipe>
 		</div>
 		<div class="exhibitList">
-			<router-link to="MusemClassfication?type=hdzx&tittle=活动咨询">
+			<router-link to="MusemClassfication?type=gscl&tittle=关史陈列">
 				<div class="exhibitBtn">
-					<div class="gghdBtnBox">
-						活动咨询	
+					<div class="xtzxbtnBox">
+						关史陈列
 					</div>
 					<div class="imgBox">
-						<img src="../../../../assets/img/zlzx1_03.jpg" alt="" />
+						<img :src="imgUrl+'/img/yjsj.png'" alt="" />
 					</div>
 				</div>
 			</router-link>
-			<router-link to="MusemClassfication?type=hdhg&tittle=活动回顾">
+			<router-link to="MusemClassfication?type=zxzl&tittle=最新展览">
 				<div class="exhibitBtn">
-					<div class="gghdBtnBox">
-						活动回顾
+					<div class="xtzxbtnBox">
+						最新展览
 					</div>
 					<div class="imgBox">
-						<img src="../../../../assets/img/zlzx3_03.jpg" alt="" />
+						<img :src="imgUrl+'/img/jzzx.png'" alt="" />
+					</div>
+				</div>
+			</router-link>
+			<router-link to="MusemClassfication?type=hddt&tittle=活动动态">
+				<div class="exhibitBtn">
+					<div class="xtzxbtnBox">
+						活动动态
+					</div>
+					<div class="imgBox">
+						<img :src="imgUrl+'/img/wqhg.png'" alt="" />
 					</div>
 				</div>
 			</router-link>
@@ -58,5 +67,3 @@
 	}
 </script>
 
-<style>
-</style>

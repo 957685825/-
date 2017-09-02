@@ -2,7 +2,7 @@
 	<div id="collectionDetails">
 		<div class="shwoImgBox">
 			<div class="imgbox">
-				<img src="../../../../assets/img/1.png" alt="" />
+				<img :src="hostUrl+dataList.artImgUrl" alt="" />
 			</div>
 		</div>
 		<div class="btnBoxList">
@@ -25,12 +25,12 @@
 		</div>
 		<div class="contentList">
 			<div class="contents">
-				<h2>中国灯塔图</h2>
+				<h2>{{dataList.artName}}</h2>
 				<ul>
-					<li>2.8cm×1.7cm×1cm</li>
-					<li>陶瓷</li>
-					<li>清代</li>
-					<li>海关总税务司署船钞部绘图师穆乐编绘，英国地图出版社印刷。描绘了中国渤海、黄海、东海、南海海域灯塔的分布情况。系中国大陆仅存的孤本。</li>
+					<li>{{dataList.inch}}</li>
+					<li>{{dataList.zhidi}}</li>
+					<li>{{dataList.year}}</li>
+					<li>{{dataList.artDes}}</li>
 				</ul>
 			</div>
 		</div>
@@ -41,9 +41,39 @@
 		</div>
 	</div>
 </template>
-
 <script>
-</script>
+  	import Api from '../../../../api.js'
+  	import fiter from '../../../../filter.js'
+	
+	export default {
+	    data () {
+	      return {
+	     		dataList: [],
+	     		hostUrl: '',
+	     		
+	      }	
+	   	},
+	    components:{ //在再这里要注入我的组件
+	      
+	    },
+	    methods: {
+		 
+	    },
+	    created(){//只执行一次
+	    },
+	    mounted(){
 
-<style>
-</style>
+	    		var jsons = {
+	    			'artId':this.$route.query.artId
+	    		}
+
+	    		Api.collection.collectionDetails(jsons).then(res=>{
+	    			this.hostUrl = res.data.url
+	    			this.dataList = res.data.result
+	    			console.log(res)
+	    		},err=>{})
+	    		
+
+	    }
+  }
+</script>

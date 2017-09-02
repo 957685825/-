@@ -44,10 +44,12 @@ import aboutMusem from '@/components/classification/zjgb/aboutCustomMuseum/about
 import musemIntroduce from '@/components/classification/zjgb/aboutCustomMuseum/musemIntroduce.vue'
 //走进关博/关博讲坛
 import Pulpit from '@/components/classification/zjgb/customMuseumPulpit/pulpit.vue'
+//走进关博/系统咨询
+import SystemInformation from '@/components/classification/zjgb/systemInformation/systemInformation.vue'
 //走进关博/关博讲坛（分类）
-import MusemClassfication from '@/components/classification/zjgb/customMuseumPulpit/musemClassfication.vue'
-//走进关博/关博讲坛（详情）
-import MusemPulpitDetails from '@/components/classification/zjgb/customMuseumPulpit/musemPulpitDetails.vue'
+import MusemClassfication from '@/components/classification/zjgb/classfication/musemClassfication.vue'
+//走进关博/关博 活动、咨询，讲坛（详情）
+import MusemDetails from '@/components/classification/zjgb/classfication/musemDetails.vue'
 //走进关博/公共活动（分类）
 import PublicActivity from '@/components/classification/zjgb/customMuseumPublicActivity/publicActivity.vue'
 
@@ -190,6 +192,13 @@ let router =  new vueRouter({
 		      meta: {
 		        title: '关博讲坛'
 		      }
+		    },{ //走进关博/系统咨询
+		      path: '/SystemInformation',
+		      name: 'SystemInformation',
+		      component: SystemInformation,
+		      meta: {
+		        title: '系统咨询'
+		      }
 		    },{ //走进关博/关博讲坛（分类）
 		      path: '/MusemClassfication',
 		      name: 'MusemClassfication',
@@ -198,9 +207,9 @@ let router =  new vueRouter({
 		        title: '关博讲坛'
 		      }
 		    },{ //走进关博/关博讲坛（详情）
-		      path: '/MusemPulpitDetails',
-		      name: 'MusemPulpitDetails',
-		      component: MusemPulpitDetails,
+		      path: '/MusemDetails',
+		      name: 'MusemDetails',
+		      component: MusemDetails,
 		      meta: {
 		        title: '关博讲坛'
 		      }

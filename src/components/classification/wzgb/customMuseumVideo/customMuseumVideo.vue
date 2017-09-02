@@ -8,7 +8,7 @@
 				</div>
 			</div>
 			<div class="rightBox">
-				<router-link to="musemIntroduce">
+				<router-link to="">
 					<div class="btnList">
 						<img src="../../../../assets/img/abjj.png" alt="" />
 						<p>海关影像</p>

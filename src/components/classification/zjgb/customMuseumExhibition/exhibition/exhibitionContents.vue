@@ -1,16 +1,16 @@
 <template>
 	<div id="exhibitionContent">
 		<div class="imgBox">
-			<img src="../../../../../assets/img/4.png" alt="" />
+			<img :src="hostUrl+dataList.imgUrl" alt="" />
 		</div>
 		<div class="contentBox">
 			<div class="textBoxList">
-				<h2>“海关902”艇</h2>
+				<h2>{{dataList.exhibitName}}</h2>
 				<div class="texBox">
-					<p> <span>展览时间</span>：常设展览</p>
-					<p> <span>展览地点</span>：中国海关博物馆　</p>
-					<p> <span>展览介绍</span>：中国海关博物馆中国海关博物馆中国海关博物馆中国海关博物馆中国海关博物馆中国海关博物馆中国海关博物馆</p>
-					<p>展开</p>
+					<p> <span>展览时间</span>：{{dataList.startTime}}-{{dataList.endTime}}</p>
+					<p> <span>展览地点</span>：{{dataList.address}}　</p>
+					<p> <span>展览介绍</span>：{{selectBool==true?selectBoolTrueText:selectBoolFalseText}}</p>
+					<p @click="selectFn">{{selectBtnText}}</p>
 				</div>
 			</div>
 		</div>
@@ -23,40 +23,20 @@
 					查看更多
 				</div>
 				<div class="imgList">
-					<div class="showImgBox">
-						<div class="showImg">
-							<img src="../../../../../assets/img/222.png"/>
+					<div class="showImgBox" v-for="itme in dataList.recommendList">
+						<div class="showImg" @click="gotoDetails(itme.artId)">
+							<img :src="hostUrl+itme.artImgUrl"/>
 						</div>
-						<div class="textBox">望远镜</div>
+						<div class="textBox">{{itme.artName}}</div>
 					</div>
-					<div class="showImgBox">
-						<div class="showImg">
-							<img src="../../../../../assets/img/222.png"/>
-						</div>
-						<div class="textBox">望远镜</div>
-					</div>
-					<div class="showImgBox">
-						<div class="showImg">
-							<img src="../../../../../assets/img/222.png"/>
-						</div>
-						<div class="textBox">望远镜</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>
 		<div class="videoBox">
 			<div class="spbg">
-				<img src="../../../../../assets/img/spbg.png"/>
-				<img class="spBtn" src="../../../../../assets/img/spbtm.png"/>
-				<video width="100%" height="100%">
-					<source src="myvideo.mp4" type="video/mp4"></source>
-					<source src="myvideo.ogv" type="video/ogg"></source>
-					<source src="myvideo.webm" type="video/webm"></source>
-					<object width="" height="" type="application/x-shockwave-flash" data="myvideo.swf">
-						<param name="movie" value="myvideo.swf" />
-						<param name="flashvars" value="autostart=true&amp;file=myvideo.swf" />
-					</object>
-					当前浏览器不支持 video直接播放，点击这里下载视频： <a href="myvideo.webm">下载视频</a>
+				<img class="spBtn" @click="videoPlay($event)" :src="imgUrl+'/img/spbtm.png'"/>
+				<video :src="hostUrl+dataList.videoImgUrl" @click="videoStop" width="100%" height="100%" :poster="hostUrl+dataList.imgUrl" id="video">
 				</video>
 			</div>
 		</div>
@@ -70,9 +50,64 @@
 		</div>
 	</div>
 </template>
-
 <script>
-</script>
+  	import Api from '../../../../../api.js'
+  	import fiter from '../../../../../filter.js'
+	
+	export default {
+	    data () {
+	      return {
+	     		dataList: [],
+	     		hostUrl: '',
+	     		selectBool: false,
+	     		selectBtnText: '展开',
+	     		selectBoolTrueText: '',
+	     		selectBoolFalseText: '',
+	     		imgUrl:Api.STATIC_SERVER_HOST
+	      }	
+	   	},
+	    components:{ //在再这里要注入我的组件
+	      
+	    },
+	    methods: {
+		  selectFn() {
+		  	this.selectBool = !this.selectBool
+		  	if(this.selectBool == true){
+		  		this.selectBtnText = '收起'
+		  	}else{
+		  		this.selectBtnText = '展开'
+		  	}
+		  },
+		  videoPlay(event) {
+		  	//let video=document.getElementById("video")
+		  	$('#video')[0].play()
+		  	$(event.target).hide()
+		  	
+		  },
+		  videoStop(){
+		  	//let video=document.getElementById("video")
+		  	$('#video')[0].pause()
+		  	$('.spBtn').show()
+		  },
+		  gotoDetails(id) {
+		  	location.href='#collectionDetails?artId='+id
+		  }
+	    },
+	    created(){//只执行一次
+	    },
+	    mounted(){
 
-<style>
-</style>
+	    		var jsons = {
+	    			'exhibitId':this.$route.query.id
+	    		}
+	    		Api.exhibition.exhibitDetails(jsons).then(res=>{
+	    			this.hostUrl = res.data.url
+	    			this.dataList = res.data.result
+	    			this.selectBoolFalseText = res.data.result.description.substr(0,100).concat('....')
+	    			this.selectBoolTrueText =  res.data.result.description
+	    		},err=>{})
+	    		
+
+	    }
+  }
+</script>

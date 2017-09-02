@@ -25,15 +25,29 @@ const GBJT_LIST = `${HOST}hgmuseum/iface/jk/xxlist`
  * */
 const GB_DETAILS = `${HOST}/hgmuseum/iface/jk/xxinfo`
 
-/*查询sku*/
-const  QUERY_SKU_URL = `${HOST}artup-build/builder/sku.do?format=json&ignore=true`;
-/*查询属性对象*/
-const  QUERY_ATTRIBUTE_URL = `${HOST}artup-build/builder/service/attributes.do?format=json&ignore=true`;
+/*
+ * 关博展览列表(分类)
+ * type:分类
+ **/
+const EXHIBIT_LIST = `${HOST}hgmuseum/iface/jk/exhibitlist2?platform=weixin`
 
-/*添加购物车*/
-const ADD_CAR = `${HOST}artup-build/builder/cors/car/add/command.do?format=json&ignore=true`
+/*
+ * 关博展览详情
+ * exhibitId:分类的id
+ **/
+const EXHIBIT_DETAILS = `${HOST}hgmuseum/iface/jk/exhibitdetail`
+/*
+ * 轮播图
+ * type:分类
+ **/
+const LB_LIST = `${HOST}hgmuseum/iface/jk/lblist`
 
 
+/*
+ * 关博藏品详情
+ * artId:藏品id
+ **/
+const COLLECTION_DETAILS = `${HOST}hgmuseum/iface/jk/artdetail`
 
 
 
@@ -42,6 +56,11 @@ const ADD_CAR = `${HOST}artup-build/builder/cors/car/add/command.do?format=json&
 //	alert('用户信息不存在!');  
 //	location.href='#/'
 export default {
+		lunbo:{
+			list:(jsons)=>{
+				return VueHttp.$http.get(LB_LIST,{params:jsons})
+			}
+		},
 		pulpit:{
 			pulpitList:(jsons)=>{
 				return VueHttp.$http.get(GBJT_LIST,{params:jsons})
@@ -50,19 +69,20 @@ export default {
 				return VueHttp.$http.get(GB_DETAILS,{params:jsons})
 			}
 		},
-		testBaidu:{
-	  		test:(inter)=>{
-	  			return  VueHttp.$http.get(HOST+inter)   
-	  		}
-	   },
-	   sku:{
-	   		querySku:(paraJsons)=>{
-	   			return VueHttp.$http.get(QUERY_SKU_URL,{params: paraJsons})
-	   		},
-	   		queryAttributes:(paraJsons)=>{
-	   			return VueHttp.$http.get(QUERY_ATTRIBUTE_URL, {params: paraJsons})
-	   		}
-	   },
+		exhibition:{
+			exhibitList:(jsons)=>{
+				return VueHttp.$http.get(EXHIBIT_LIST,{params:jsons})
+			},
+			exhibitDetails:(jsons)=>{
+				return VueHttp.$http.get(EXHIBIT_DETAILS,{params:jsons})
+			}
+		
+		},
+		collection:{
+			collectionDetails:(jsons)=>{
+				return VueHttp.$http.get(COLLECTION_DETAILS,{params:jsons})
+			}
+		},
 	   car:{
 	   	/*添加购物车*/
 	   	addCar:(jsons)=>{
@@ -71,9 +91,7 @@ export default {
 	   	 	)
 	   	}
 	   },
-	   address:{
-		   
-	   },
+	  STATIC_SERVER_HOST:STATIC_SERVER_HOST
 
 		
 		

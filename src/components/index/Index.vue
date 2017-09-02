@@ -5,9 +5,10 @@
 			<ul>
 				<li style="color: red;">走进关博</li>
 				<li><router-link to='/aboutMusem'>关于关博</router-link></li>
-				<li><router-link to="/exhibition">关博展览</router-link></li>
-				<li><router-link to='/Pulpit'>关博讲坛</router-link></li>
-				<li><router-link to='/PublicActivity'>公共活动</router-link></li>
+				<li><router-link to='/SystemInformation?type=xtzxlb'>系统资讯</router-link></li>
+				<li><router-link to="/exhibition?type=gbzllb">关博展览</router-link></li>
+				<li><router-link to='/Pulpit?type=gbjtlb'>关博讲坛</router-link></li>
+				<li><router-link to='/PublicActivity?type=gghdlb'>公共活动</router-link></li>
 			</ul>
 			<ul>
 				<li style="color: red;">玩转关博</li>
