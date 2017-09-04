@@ -2,23 +2,33 @@
 	<div id="relatedLinks">
 		<div class="contents">
 			<div class="box tell">
-				<img src="../../../../assets/img/12306.png"/>
+				<img :src="imgUrl+'/img/12306.png'"/>
 			</div>
 			<div class="box hgfb">
-				<img src="../../../../assets/img/hgfb.png" alt="" />
+				<img :src="imgUrl+'/img/hgfb.png'" alt="" />
 			</div>
 			<div class="box jys">
-				<img src="../../../../assets/img/jys.png" alt="" />
+				<img :src="imgUrl+'/img/jys.png'" alt="" />
 			</div>
 			<div class="box hgzz">
-				<img src="../../../../assets/img/zz.png" alt="" />
+				<img :src="imgUrl+'/img/zz.png'" alt="" />
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-</script>
+import Api from '../../../../api.js'
+	export default {
+		data () {
+	      return {
+	     		imgUrl:Api.STATIC_SERVER_HOST,
+	     		list:''
+	      }	
+	   	},
+	   	 mounted(){
+	    		
 
-<style>
-</style>
+	    }
+	}
+</script>

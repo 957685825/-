@@ -48,14 +48,28 @@ const LB_LIST = `${HOST}hgmuseum/iface/jk/lblist`
  * artId:藏品id
  **/
 const COLLECTION_DETAILS = `${HOST}hgmuseum/iface/jk/artdetail`
+/*
+ * 关博藏品list
+ * exId:展览的id（如果是从展览里面过来的带展览相关的id）
+ **/
+const COLLECTION_LIST = `${HOST}hgmuseum/iface/jk/getExArt`
 
-
+/*
+ * 关博影像
+ * type:gbyxlb
+ **/
+const MUSEUM_VIDEO_LIST = `${HOST}/hgmuseum/iface/jk/lblist?type=gbyxlb`
 
 ////只要访问ajax的时候，没有这个用户信息，就跳到首页去登录获取用户信息
 //if (!sessionIds) {
 //	alert('用户信息不存在!');  
 //	location.href='#/'
 export default {
+		museumVideo:{
+			videoList:()=>{
+				return VueHttp.$http.get(MUSEUM_VIDEO_LIST)
+			}
+		},
 		lunbo:{
 			list:(jsons)=>{
 				return VueHttp.$http.get(LB_LIST,{params:jsons})
@@ -81,6 +95,9 @@ export default {
 		collection:{
 			collectionDetails:(jsons)=>{
 				return VueHttp.$http.get(COLLECTION_DETAILS,{params:jsons})
+			},
+			collectionList:(jsons)=>{
+				return VueHttp.$http.get(COLLECTION_LIST,{params:jsons})
 			}
 		},
 	   car:{

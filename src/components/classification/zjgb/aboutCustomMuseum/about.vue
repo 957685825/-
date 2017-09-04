@@ -10,29 +10,38 @@
 			<div class="rightBox">
 				<router-link to="musemIntroduce">
 					<div class="btnList">
-						<img src="../../../../assets/img/abjj.png" alt="" />
+						<img :src="imgUrl+'/img/abjj.png'" alt="" />
 						<p>关博简介</p>
 					</div>
 				</router-link>
 				<div class="btnList">
-					<img src="../../../../assets/img/jgsz.png" alt="" />
+					<img :src="imgUrl+'/img/jgsz.png'" alt="" />
 					<p>机构设置</p>
 				</div>
 				<div class="btnList">
-					<img src="../../../../assets/img/bmzz.png" alt="" />
+					<img :src="imgUrl+'/img/bmzz.png'" alt="" />
 					<p>部门职位</p>
 				</div>
 				<div class="btnList">
-					<img src="../../../../assets/img/gzzd.png" alt="" />
+					<img :src="imgUrl+'/img/gzzd.png'" alt="" />
 					<p>规章制度</p>
 				</div>
 			</div>
 		</div>
 	</div>
 </template>
-
 <script>
-</script>
+import Api from '../../../../api.js'
+	export default {
+		data () {
+	      return {
+	     		imgUrl:Api.STATIC_SERVER_HOST,
+	     		list:''
+	      }	
+	   	},
+	   	 mounted(){
+	    		
 
-<style>
-</style>
+	    }
+	}
+</script>

@@ -34,7 +34,7 @@
 				</ul>
 			</div>
 		</div>
-		<div class="shwoImgBox ewm">
+		<div class="shwoImgBox ewm" style="display: none;">
 			<div class="imgbox">
 				<img src="../../../../assets/img/ewm.png" alt="" />
 			</div>

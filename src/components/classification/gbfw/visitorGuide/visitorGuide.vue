@@ -3,7 +3,7 @@
 		<div class="contents">
 			<h2>一、交通路线</h2>
 			<div class="imgBox">
-				<img src="../../../../assets/img/dt.png"/>
+				<img :src="imgUrl+'/img/dt.png'"/>
 			</div>
 			<div class="textList">
 				<p>1.驾车前往：东城区建国门内大街2号（长安街沿线路南，海关总署东侧），博物馆无停车场，建议使用公共交通方式。</p>
@@ -57,7 +57,17 @@
 </template>
 
 <script>
-</script>
+import Api from '../../../../api.js'
+	export default {
+		data () {
+	      return {
+	     		imgUrl:Api.STATIC_SERVER_HOST,
+	     		list:''
+	      }	
+	   	},
+	   	 mounted(){
+	    		
 
-<style>
-</style>
+	    }
+	}
+</script>

@@ -208,10 +208,12 @@ body .mint-header{
     width: 100%;
     height: 100%;
     background-color: #f9f9f9;
+    overflow: hidden;
     .shwoImgBox{
         width: 100%;
         height: 13.84rem;
         background-color: #FFFFFF;
+        overflow: hidden;
         .imgbox{
             width: 16.74rem;
             height: 10.3rem;
@@ -324,14 +326,17 @@ body .mint-header{
     height: 100%;
     background-image: url('@{staticServer}/img/gswd.png');
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 100%;
     background-position: center center;
+    background-position-y: -3.5rem ;
     background-color: #000000;
     overflow: hidden;
     .questionList{
         width: 18.5rem;
         height: 100%;
         margin:  0 auto;
+        background-color: rgba(0,0,0,0.4);
+        overflow-y: auto;
         .tittle{
             width: 100%;
             text-align: center;
@@ -341,43 +346,68 @@ body .mint-header{
             margin-top: 1.12rem;
             font-size: 0.99rem;
         }
-        .questionBox{
-            width: 100%;
-            border-bottom: 2px solid #96979a;
-            position: relative;
-          .questions{
-              width: 16.1rem;
-              min-height:4rem;
-              margin: 0 auto;
-              overflow: hidden;
-              >p{
-                color: #fff;
-                float: left;
-                width: 13.6rem;
-                margin-left: 0.48rem;
-                font-size: 0.74rem;
-                line-height: 1.6rem;
-                letter-spacing: 0.08;
+        .questions{
+            .questionBox{
+                width: 100%;
+                border-bottom: 2px solid #96979a;
+                position: relative;
+              .questions{
+                  width: 16.1rem;
+                  min-height:4rem;
+                  margin: 0 auto;
+                  overflow: hidden;
+                  >p{
+                    color: #fff;
+                    float: left;
+                    width: 13.6rem;
+                    margin-left: 0.48rem;
+                    font-size: 0.74rem;
+                    line-height: 1.6rem;
+                    letter-spacing: 0.08;
+                }
+                .checkBox{ 
+                    width: 1rem;
+                    height: 1rem;
+                    background-color: #fff;
+                    float: left;
+                    margin-top: 0.4rem;
+                    >img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+              }
             }
-            .checkBox{ 
-                width: 1rem;
-                height: 1rem;
-                background-color: #fff;
-                float: left;
-                margin-top: 0.4rem;
-            }
-          }
         }
         .submitBtn{
-            width: 9.66rem;
-            height: 2.41rem;
-            border-radius: 4px;
-            background: #71b3fd;
-            text-align: center;
-            font-size: 0.8rem;
-            line-height: 2.41rem;
-            color: #FFFFFF;
-            margin: 2rem auto;
+             width: 100%;
+             height: 2.41rem;
+             margin-top: 2rem;
+            .btns{
+                width: 6.76rem;
+                height: 2.41rem;
+                border-radius: 4px;
+                background: #71b3fd;
+                text-align: center;
+                font-size: 0.8rem;
+                line-height: 2.41rem;
+                color: #FFFFFF;
+                float: left;
+                margin-left: 2rem;
+               
+            }
+            .nextBTN{
+                width: 6.76rem;
+                height: 2.41rem;
+                border-radius: 4px;
+                background: #71b3fd;
+                text-align: center;
+                font-size: 0.8rem;
+                line-height: 2.41rem;
+                color: #FFFFFF;
+                margin: 0 auto !important;
+            }
+            
         }
     }
 }
@@ -651,8 +681,9 @@ body .mint-header{
     height: 100%;
     background-color: #000;
     background-image: url('@{staticServer}/img/gswd.png');
-    background-size: 100% 100%;
-    background-position: center;
+    background-size: 100%;
+    background-position: center center;
+    background-position-y: -3.5rem;
     position: relative;
     .textContents{
         height: 100%;
@@ -694,14 +725,14 @@ body .mint-header{
             }
             .tsk{
                 width: 100%;
-                min-height: 5.4rem;
+                min-height: 6.4rem;
                 background-image: url('@{staticServer}/img/tsk.png');
                 background-repeat: no-repeat;
                 background-size: 100% 120%;
                 background-position: center;
                 position: absolute;
                 overflow: hidden;
-                top: 0;
+                top: -0.6rem;
                 .texts{
                      width:7.6rem;
                      margin: 0.4rem auto;
@@ -736,6 +767,7 @@ body .mint-header{
         width: 18.51rem;
         height: 100%;
         margin: 0 auto;
+        overflow-y: auto;
         .listBox{
             width: 8.05rem;
             height: 9.98rem;

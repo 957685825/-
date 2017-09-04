@@ -15,7 +15,7 @@
 						活动咨询	
 					</div>
 					<div class="imgBox">
-						<img src="../../../../assets/img/zlzx1_03.jpg" alt="" />
+						<img :src="imgUrl+'/img/zlzx1_03.jpg'" alt="" />
 					</div>
 				</div>
 			</router-link>
@@ -25,7 +25,7 @@
 						活动回顾
 					</div>
 					<div class="imgBox">
-						<img src="../../../../assets/img/zlzx3_03.jpg" alt="" />
+						<img :src="imgUrl+'/img/zlzx3_03.jpg'" alt="" />
 					</div>
 				</div>
 			</router-link>

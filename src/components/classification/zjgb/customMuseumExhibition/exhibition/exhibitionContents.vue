@@ -19,7 +19,7 @@
 				<div class="leftTittle">
 					展览藏品
 				</div>
-				<div class="rightButton">
+				<div class="rightButton" @click="more(dataList.exhibitId)">
 					查看更多
 				</div>
 				<div class="imgList">
@@ -35,8 +35,8 @@
 		</div>
 		<div class="videoBox">
 			<div class="spbg">
-				<img class="spBtn" @click="videoPlay($event)" :src="imgUrl+'/img/spbtm.png'"/>
-				<video :src="hostUrl+dataList.videoImgUrl" @click="videoStop" width="100%" height="100%" :poster="hostUrl+dataList.imgUrl" id="video">
+				<!--<img class="spBtn" @click="videoPlay($event)" :src="imgUrl+'/img/spbtm.png'"/>-->
+				<video  :src="hostUrl+dataList.videoImgUrl" @click="videoStop" width="100%" height="100%" :poster="hostUrl+dataList.imgUrl" id="video">
 				</video>
 			</div>
 		</div>
@@ -91,7 +91,11 @@
 		  },
 		  gotoDetails(id) {
 		  	location.href='#collectionDetails?artId='+id
+		  },
+		  more(id) {
+		  	location.href='#collectionList?exId='+id
 		  }
+		  
 	    },
 	    created(){//只执行一次
 	    },
@@ -105,6 +109,7 @@
 	    			this.dataList = res.data.result
 	    			this.selectBoolFalseText = res.data.result.description.substr(0,100).concat('....')
 	    			this.selectBoolTrueText =  res.data.result.description
+				console.log(res)
 	    		},err=>{})
 	    		
 
