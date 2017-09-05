@@ -5,13 +5,13 @@ import qs from 'qs'
 Vue.prototype.$http = axios
 
 // 常量 API 接口地址
-const HOST = HOST_CONFIG;
+const HOST = HOST_CONFIG
 
 //图片服务器（静态资源）服务器地址
-const STATIC_SERVER_HOST = HOST_STATIC_SERVER_HOST;
+const STATIC_SERVER_HOST = HOST_STATIC_SERVER_HOST
 
 
-const VueHttp = new Vue();
+const VueHttp = new Vue()
 //用户名全局变量获取
 
 /*
@@ -109,10 +109,6 @@ export default {
 	   	}
 	   },
 	  STATIC_SERVER_HOST:STATIC_SERVER_HOST
-
-		
-		
-	
 }
   	
 

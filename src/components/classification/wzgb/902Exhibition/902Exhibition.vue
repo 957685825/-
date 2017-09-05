@@ -1,13 +1,16 @@
 <template>
 	<div id="Exhibition">
 		<router-link to='exhibitionContent902'>
-			<div class="chuanCang">
-				<img :src="imgUrl+'/img/chuancang.png'"/>
+			<div class="chuanCang zt">
+				<span>船舱</span>
+				<img :src="imgUrl+'/img/hys001.png'"/>
+
 			</div>
 		</router-link>
 		<router-link to='exhibitionContent902'>
-			<div class="huiyishi">
-				<img :src="imgUrl+'/img/huiyishi.png'"/>	
+			<div class="huiyishi zt">
+				<span>会议室</span>
+				<img :src="imgUrl+'/img/hys001.png'"/>
 			</div>
 		</router-link>		
 	</div>

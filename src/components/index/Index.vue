@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import Api from '../../API.js'
+import Api from '@/api.js'
 import { Swipe, SwipeItem,Indicator } from 'mint-ui';
 export default {
   data () {
