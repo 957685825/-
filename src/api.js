@@ -60,11 +60,22 @@ const COLLECTION_LIST = `${HOST}hgmuseum/iface/jk/getExArt`
  **/
 const MUSEUM_VIDEO_LIST = `${HOST}/hgmuseum/iface/jk/lblist?type=gbyxlb`
 
+/*
+ * 关于关博
+ * type:类型
+ **/
+const MUSEUM_ABOUT_DETAILS = `${HOST}/hgmuseum/iface/jk/jtinfo`
+
 ////只要访问ajax的时候，没有这个用户信息，就跳到首页去登录获取用户信息
 //if (!sessionIds) {
 //	alert('用户信息不存在!');  
 //	location.href='#/'
 export default {
+		about:{
+			museumAbout:(jsons)=>{
+				return VueHttp.$http.get(MUSEUM_ABOUT_DETAILS,{params:jsons})
+			}
+		},
 		museumVideo:{
 			videoList:()=>{
 				return VueHttp.$http.get(MUSEUM_VIDEO_LIST)
