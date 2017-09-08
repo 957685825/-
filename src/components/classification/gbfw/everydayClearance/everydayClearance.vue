@@ -1,27 +1,82 @@
 <template>
 	<div id="everydayClearance">
 		<div class="textContents">
-			<h2>关史知识投递</h2>
+			<h2>{{dataList.title}}</h2>
 			<div class="question">
-				同治六年（1867年），总理衙门授权总税务司署统管国内参展国际博览会事宜。近代海关先后组建代表团出国参加了维也纳，费城，巴黎，伦敦等地的万国博览会共29次。光绪三十一年（1905年），商部接管万国博览会参展事宜
+				{{dataList.lore}}
 			</div>
 			<div class="submitBox">
 				<div class="tsk">
 					<div class="texts">
-						<p>本月您已签到<span>20</span>天，</p>
-						<p>您的总积分为<span>38200分</span></p>
+						<p>本月您已签到<span>{{everyRegisterData.signTime}}</span>天，</p>
+						<p>您的总积分为<span>{{everyRegisterData.totalCredit}}分</span></p>
 					</div>
 				</div>
-				<div class="qdBtn">
-					签到
+				<div class="qdBtn" @click="register">
+					{{registerText}}
 				</div>
 			</div>
 		</div>
 	</div>
 </template>
-
 <script>
-</script>
+    import Api from '@/api.js'
 
-<style>
-</style>
+    export default {
+        data () {
+            return {
+                dataList: [],
+                tittle: '',
+                hostUrl: '',
+				everyRegisterData:'',
+				registerBool: false,
+				registerText: '签到'
+            }
+        },
+        components:{ //在再这里要注入我的组件
+
+        },
+        methods: {
+            register(){
+                if(this.registerBool === false){
+                    Api.every.everyRegister().then(res=>{
+                        this.everyRegisterData = res.data
+                        console.log(res)
+                        if(res.data.msg == ''){
+                            this.registerBool = true
+                            $('.tsk').fadeIn(2000)
+                            $('.qdBtn').css({'background':'#a0a5ab'})
+                            this.registerText ='已签到'
+
+                            setTimeout(function(){
+                                //$('.tsk').fadeOut(500)
+                            },4000)
+                        }
+                    },err=>{alert('网络错误')})
+				}else{
+                    alert('您今天已经签到，请明天再来')
+				}
+
+			}
+        },
+        created(){//只执行一次
+        },
+        mounted(){
+
+            Api.every.everyClearance().then(res=>{
+                //this.hostUrl = res.data.url
+				this.dataList =  res.data
+                console.log(res)
+				if(res.data.remarks != ''){
+                    $('.qdBtn').css({'background':'#a0a5ab'})
+                    this.registerBool = true
+					this.registerText ='已签到'
+				}else{
+                    this.registerBool = false
+                    this.registerText ='签到'
+
+                }
+            },err=>{alert('网络错误')})
+        }
+    }
+</script>

@@ -66,11 +66,30 @@ const MUSEUM_VIDEO_LIST = `${HOST}/hgmuseum/iface/jk/lblist?type=gbyxlb`
  **/
 const MUSEUM_ABOUT_DETAILS = `${HOST}/hgmuseum/iface/jk/jtinfo`
 
+/*
+ * 每日通关
+ *
+ **/
+const MUSEUM_EVERY_CLEARANCE = `${HOST}hgmuseum/hgwxqd/showMrtg`
+
+/*
+ *签到
+ */
+const MUSEUM_EVERY_REGISTER = `${HOST}hgmuseum/hgwxqd/checkSign`
+
 ////只要访问ajax的时候，没有这个用户信息，就跳到首页去登录获取用户信息
 //if (!sessionIds) {
 //	alert('用户信息不存在!');  
 //	location.href='#/'
 export default {
+		every:{
+			everyClearance:()=>{
+                return VueHttp.$http.get(MUSEUM_EVERY_CLEARANCE)
+            },
+			everyRegister:()=>{
+                return VueHttp.$http.get(MUSEUM_EVERY_REGISTER)
+			}
+		},
 		about:{
 			museumAbout:(jsons)=>{
 				return VueHttp.$http.get(MUSEUM_ABOUT_DETAILS,{params:jsons})

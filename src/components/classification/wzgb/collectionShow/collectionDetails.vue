@@ -8,16 +8,17 @@
 		<div class="btnBoxList">
 			<div class="btnList">
 				<ul>
-					<li>
-						<img src="../../../../assets/img/yp.png" alt="" />
+					<li @click="audioPlay(dataList.audioUrl)" class="audioClass">
+						<audio id="audio" :src="hostUrl+dataList.audioUrl"></audio>
+						<img :src="imgUrl+'/img/yp.png'" alt="" />
 						<span>音频</span>
 					</li>
-					<li>
-						<img src="../../../../assets/img/sp.png" alt="" />
+					<li @click="gotoVideo(dataList.videoUrl)" class="videoClass">
+						<img :src="imgUrl+'/img/sp.png'" alt="" />
 						<span>视频</span>
 					</li>
-					<li>
-						<img src="../../../../assets/img/3d.png" alt="" />
+					<li @click="goto3D(dataList.url3D)" class="3DClass">
+						<img :src="imgUrl+'/img/3d.png'" alt="" />
 						<span>3D</span>
 					</li>
 				</ul>
@@ -50,14 +51,61 @@
 	      return {
 	     		dataList: [],
 	     		hostUrl: '',
-	     		
+                imgUrl:Api.STATIC_SERVER_HOST,
+			  	audioBool:false
 	      }	
 	   	},
 	    components:{ //在再这里要注入我的组件
 	      
 	    },
 	    methods: {
-		 
+            goto3D(url) {
+                if(url){
+                    location.href = this.hostUrl + url
+                }else{
+                    $('.3DClass').css({opacity:'0.5'})
+					alert('没有相关内容')
+
+                }
+
+			},
+            gotoVideo(url) {
+                if(url){
+                    location.href = this.hostUrl + url
+				}else{
+                    $('.videoClass').css({opacity:'0.5'})
+                    alert('没有相关内容')
+
+                }
+
+			},
+            audioPlay(url) {
+                if(url){
+                    this.audioBool = !this.audioBool
+                    if(this.audioBool == true){
+                        $('#audio')[0].play()
+                    }else{
+                        $('#audio')[0].pause()
+                    }
+				}else{
+                    $('.audioClass').css({opacity:'0.5'})
+                    alert('没有相关内容')
+
+
+                }
+
+			},
+			initBtnStyle(dataList){
+                if(dataList.audioUrl == ''){
+                    $('.audioClass').css({opacity:'0.5'})
+                }
+                if(dataList.videoUrl == ''){
+                    $('.videoClass').css({opacity:'0.5'})
+                }
+                if(dataList.url3D == ''){
+                    $('.3DClass').css({opacity:'0.5'})
+                }
+			}
 	    },
 	    created(){//只执行一次
 	    },
@@ -70,6 +118,7 @@
 	    		Api.collection.collectionDetails(jsons).then(res=>{
 	    			this.hostUrl = res.data.url
 	    			this.dataList = res.data.result
+					this.initBtnStyle(this.dataList)
 	    			console.log(res)
 	    		},err=>{})
 	    		

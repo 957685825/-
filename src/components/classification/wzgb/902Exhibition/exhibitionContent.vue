@@ -1,26 +1,44 @@
 <template>
 	<div id="exhibition902">
 		<div class="group">
-			<div class="imgBox">
-				<img src="../../../../assets/img/4.png" alt="" />
-			</div>
-			<div class="textBox">
-				<p>“海关902”艇长58.5米、高13米、最大宽7.8米，总排水量400吨，抗风能力8级，最大航速29.5节，并配有卫星定位、雷达导航跟踪搜索系统及H966通讯系统，是我国自行设计建造、当时在珠江水域上最为先进的舰艇之一。该艇于1989年7月20日在拱北海关投入使用，2009年11月19日正式退役后被征集为中国海关博物馆藏品</p>
+
+			<div class="textBox" v-html="dataList">
+
 			</div>
 		</div>
-		<div class="group">
-			<div class="imgBox">
-				<img src="../../../../assets/img/1.png" alt="" />
-			</div>
-			<div class="textBox">
-				<p>“海关902”艇长58.5米、高13米、最大宽7.8米，总排水量400吨总排水量400吨总排水量400吨总排水量400吨总排水量400吨总排水量400吨总排水量400吨，抗风能力8级，最大航速29.5节，并配有卫星定位、雷达导航跟踪搜索系统及H966通讯系统，是我国自行设计建造、当时在珠江水域上最为先进的舰艇之一。该艇于1989年7月20日在拱北海关投入使用，2009年11月19日正式退役后被征集为中国海关博物馆藏品</p>
-			</div>
-		</div>
+
+
 	</div>
 </template>
-
 <script>
-</script>
+    import Api from '@/api.js'
 
-<style>
-</style>
+    export default {
+        data () {
+            return {
+                dataList: [],
+                tittle: '',
+                hostUrl: ''
+            }
+        },
+        components:{ //在再这里要注入我的组件
+
+        },
+        methods: {
+
+        },
+        created(){//只执行一次
+        },
+        mounted(){
+            var jsons = {
+                'type':this.$route.query.type
+            }
+            Api.about.museumAbout(jsons).then(res=>{
+                this.dataList = res.data.info.data.content
+                //this.hostUrl = res.data.url
+                //console.log(res.data)
+				Object.assign
+            },err=>{})
+        }
+    }
+</script>
