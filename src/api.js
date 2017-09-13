@@ -76,7 +76,31 @@ const MUSEUM_EVERY_CLEARANCE = `${HOST}hgmuseum/hgwxqd/showMrtg`
  *签到
  */
 const MUSEUM_EVERY_REGISTER = `${HOST}hgmuseum/hgwxqd/checkSign`
-
+/*
+ *关事问答
+ */
+const MUSEUM_EVERY_QUESTION = `${HOST}hgmuseum/hgwxtg/showFirstGswd`
+/*
+ *关事问答（查看答案）
+ *questionid：问题的id（string）
+ * answer：问题答案（int）
+ *pageNo：问题的pageNo
+ */
+const MUSEUM_EVERY_QUESTION_ANSWER = `${HOST}/hgmuseum/hgwxtg/doGswd`
+/*
+ *关事问答（下一题）
+ *questionid：问题的id（string）
+ * answer：问题答案（int）
+ *pageNo：问题的pageNo
+ */
+const MUSEUM_EVERY_QUESTION_ANSWER_NEXT = `${HOST}hgmuseum/hgwxtg/showNextGswd`
+/*
+ *关事问答（全部答案）
+ *questionid：问题的id（string）
+ * answer：问题答案（int）
+ *pageNo：问题的pageNo
+ */
+const MUSEUM_EVERY_QUESTION_ALL_ANSWER= `${HOST}hgmuseum/hgwxtg/showAllGswd`
 ////只要访问ajax的时候，没有这个用户信息，就跳到首页去登录获取用户信息
 //if (!sessionIds) {
 //	alert('用户信息不存在!');  
@@ -88,7 +112,19 @@ export default {
             },
 			everyRegister:()=>{
                 return VueHttp.$http.get(MUSEUM_EVERY_REGISTER)
-			}
+			},
+			everyQuestion:()=>{
+				return VueHttp.$http.get(MUSEUM_EVERY_QUESTION)
+			},
+            everyQuestionAnswer:(jsons)=>{
+                return VueHttp.$http.get(MUSEUM_EVERY_QUESTION_ANSWER,{params:jsons})
+            },
+            everyQuestionAnswerNext:(jsons)=>{
+                return VueHttp.$http.get(MUSEUM_EVERY_QUESTION_ANSWER_NEXT,{params:jsons})
+            },
+            everyQuestionAllAnswer:(jsons)=>{
+                return VueHttp.$http.get(MUSEUM_EVERY_QUESTION_ALL_ANSWER,{params:jsons})
+            }
 		},
 		about:{
 			museumAbout:(jsons)=>{

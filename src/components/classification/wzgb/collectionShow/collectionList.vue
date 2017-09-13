@@ -10,7 +10,7 @@
 					<img class="yxj" :src="imgUrl+'/img/yxj_03.png'" alt="" />
 				</div>
 				<div class="tittle">
-					{{itme.artName}}
+					{{itme.artName.length>8?itme.artName.substring(0,8).concat('...'):itme.artName}}
 				</div>
 			</div>
 			

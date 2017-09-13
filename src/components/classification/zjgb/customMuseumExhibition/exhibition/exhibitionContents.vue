@@ -10,7 +10,7 @@
 					<p> <span>展览时间</span>：{{dataList.startTime}}-{{dataList.endTime}}</p>
 					<p> <span>展览地点</span>：{{dataList.address}}　</p>
 					<p> <span>展览介绍</span>：{{selectBool==true?selectBoolTrueText:selectBoolFalseText}}</p>
-					<p @click="selectFn">{{selectBtnText}}</p>
+					<p @click="selectFn" v-show="selectBoolFalseText.length > 1 || selectBoolFalseText.length > 1">{{selectBtnText}}</p>
 				</div>
 			</div>
 		</div>
@@ -23,11 +23,11 @@
 					查看更多
 				</div>
 				<div class="imgList">
-					<div class="showImgBox" v-for="itme in dataList.recommendList">
+					<div class="showImgBox" v-show="index<3" v-for="(itme,index) in dataList.recommendList">
 						<div class="showImg" @click="gotoDetails(itme.artId)">
 							<img :src="hostUrl+itme.artImgUrl"/>
 						</div>
-						<div class="textBox">{{itme.artName}}</div>
+						<div class="textBox">{{itme.artName.length>5?itme.artName.substring(0,5).concat('...'):itme.artName}}</div>
 					</div>
 					
 				</div>
@@ -36,7 +36,7 @@
 		<div class="videoBox">
 			<div class="spbg">
 				<!--<img class="spBtn" @click="videoPlay($event)" :src="imgUrl+'/img/spbtm.png'"/>-->
-				<video  :src="hostUrl+dataList.videoImgUrl" @click="videoStop" width="100%" height="100%" :poster="hostUrl+dataList.imgUrl" id="video">
+				<video  controls="controls" :src="hostUrl+dataList.videoImgUrl"  width="100%" height="100%" :poster="hostUrl+dataList.imgUrl" id="video">
 				</video>
 			</div>
 		</div>
@@ -107,9 +107,11 @@
 	    		Api.exhibition.exhibitDetails(jsons).then(res=>{
 	    			this.hostUrl = res.data.url
 	    			this.dataList = res.data.result
-	    			this.selectBoolFalseText = res.data.result.description.substr(0,100).concat('....')
-	    			this.selectBoolTrueText =  res.data.result.description
-				console.log(res)
+					if(res.data.result.description.length > 100){
+                        this.selectBoolFalseText = res.data.result.description.substr(0,100).concat('....')
+					}this.selectBoolTrueText =  res.data.result.description
+
+
 	    		},err=>{})
 	    		
 

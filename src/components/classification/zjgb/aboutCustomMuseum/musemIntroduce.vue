@@ -4,7 +4,6 @@
 			<!--<img src="../../../../assets/img/anjj0.png"/>-->
 		<!--</div>-->
 		<div class="textBox" v-html="dataList">
-
 		</div>
 	</div>
 </template>
@@ -26,6 +25,7 @@
 
         },
         created(){//只执行一次
+			window.document.title = this.$route.query.tittle
         },
         mounted(){
             var jsons = {

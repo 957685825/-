@@ -8,25 +8,25 @@
 				</div>
 			</div>
 			<div class="rightBox">
-				<router-link to="musemIntroduce?type=gbjj">
+				<router-link to="musemIntroduce?type=gbjj&tittle=关博简介">
 					<div class="btnList">
 						<img :src="imgUrl+'/img/abjj.png'" alt="" />
 						<p>关博简介</p>
 					</div>
 				</router-link>
-				<router-link to="musemIntroduce?type=jgsz">
+				<router-link to="musemIntroduce?type=jgsz&tittle=机构设置">
 					<div class="btnList">
 						<img :src="imgUrl+'/img/jgsz.png'" alt="" />
 						<p>机构设置</p>
 					</div>
 				</router-link>
-				<router-link to="musemIntroduce?type=bmzw">
+				<router-link to="musemIntroduce?type=bmzw&tittle=部门职位">
 					<div class="btnList">
 						<img :src="imgUrl+'/img/bmzz.png'" alt="" />
 						<p>部门职位</p>
 					</div>
 				</router-link>
-				<router-link to="musemIntroduce?type=gzzd">
+				<router-link to="musemIntroduce?type=gzzd&tittle=规章制度">
 				<div class="btnList">
 					<img :src="imgUrl+'/img/gzzd.png'" alt="" />
 					<p>规章制度</p>

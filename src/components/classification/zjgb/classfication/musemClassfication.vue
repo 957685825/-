@@ -9,10 +9,10 @@
 				</div>
 			</div>
 			<div class="rightBox">
-				<div v-for='itme in dataList' class="btnList"  @click="gotoDetails(itme.id)">
+				<div v-for='itme in dataList' class="btnList"  @click="gotoDetails(itme.id,itme.title)">
 					<div class="mask"></div>
 					<img :src="itme.image" alt="" />
-					<p>{{itme.title}}</p>
+					<p>{{itme.title.length>10?itme.title.substring(0,10).concat("..."):itme.title}}</p>
 				</div>
 				
 			</div>
@@ -35,11 +35,12 @@
 	      
 	    },
 	    methods: {
-		   gotoDetails (id){
-		   		location.href = '#MusemDetails?id='+id
+		   gotoDetails (id,titt){
+		   		location.href = '#MusemDetails?id='+id+'&tittle='+titt+'&type='+this.tittle
 		   }
 	    },
 	    created(){//只执行一次
+            window.document.title = this.$route.query.tittle
 	    },
 	    mounted(){
 	    		this.tittle = this.$route.query.tittle

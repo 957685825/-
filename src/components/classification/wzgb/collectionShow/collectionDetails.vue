@@ -119,7 +119,7 @@
 	    			this.hostUrl = res.data.url
 	    			this.dataList = res.data.result
 					this.initBtnStyle(this.dataList)
-	    			console.log(res)
+
 	    		},err=>{})
 	    		
 
