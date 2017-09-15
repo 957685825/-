@@ -2,7 +2,7 @@
 	<div id="everydayClearance">
 		<div class="textContents">
 			<h2>{{dataList.title}}</h2>
-			<div class="question">
+			<div class="question" v-show="registerBool">
 				{{dataList.lore}}
 			</div>
 			<div class="submitBox">

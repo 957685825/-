@@ -197,7 +197,7 @@ let router =  new vueRouter({
 		      name: 'SystemInformation',
 		      component: SystemInformation,
 		      meta: {
-		        title: '系统咨讯'
+		        title: '系统资讯'
 		      }
 		    },{ //走进关博/关博讲坛（分类）
 		      path: '/MusemClassfication',

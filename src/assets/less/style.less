@@ -46,6 +46,11 @@ body .mint-header{
 #exhibition{
     width: 100%;
     height: 100%;
+    background-image: url('@{staticServer}/img/gghdbg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    position: relative;
     background-color: #1b1b1b;
     .swipeDiv{
         width: 100%;
@@ -147,6 +152,7 @@ body .mint-header{
     height: 100%;
     background-color: #000;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
     .contents{
         width: 100%;
         height: 100%;
@@ -217,6 +223,7 @@ body .mint-header{
     min-height: 100%;
     background-color: #f9f9f9;
     overflow: hidden;
+    -webkit-overflow-scrolling: touch;
     .shwoImgBox{
         width: 100%;
         height: 19rem;
@@ -283,13 +290,12 @@ body .mint-header{
     }
     .contentList{
         width: 100%;
-        min-height: 10.3rem;
+        min-height: 14rem;
         background-color: #FFFFFF;
         .contents{
             width: 18.51rem;
             margin: 0 auto;
             overflow: hidden;
-            margin-bottom: 2rem;
             >h2{
                 font-size: 0.8rem;
                 margin-top: 0.86rem;
@@ -346,6 +352,7 @@ body .mint-header{
         margin:  0 auto;
         background-color: rgba(0,0,0,0.4);
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         .tittle{
             width: 100%;
             text-align: center;
@@ -429,64 +436,219 @@ body .mint-header{
         }
     }
 }
-//关影留念
-#customMuseumSouvenir{
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    background-image: url('@{staticServer}/img/gylnbg_02.jpg');
-    background-size: 100% 100%;
-    background-position: center;
-    position: relative;
-    .upLoadBox{
-        width: 11.27rem;
-        height: 14.49rem;
-        background: #FFFFFF;
-        margin: auto auto;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        .upLoadImg{
-            width: 9.98rem;
-            height: 13.20rem;
-            background-color: #424858;
+#souvenir{
+    width:100%;
+    height:100%;
+    overflow: hidden;
+    //关影留念
+    #customMuseumSouvenir{
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        background-image: url('@{staticServer}/img/gyln_02.png');
+        background-size: 100% 100%;
+        background-position-y: -1.6rem;
+        background-position-x: center;
+        position: relative;
+        overflow: hidden;
+        .log{
+            width:5.3rem;
+            height:5.3rem;
+            margin-top:4rem;
+            margin-left:1.6rem;
+            img{
+                width:5.3rem;
+                height:5.3rem;
+            }
+        }
+        .add{
+            width:5.1rem;
+            height:5.1rem;
+            margin-left:7.34rem;
+            margin-top:1.7rem;
+            position: relative;
+            img{
+                width:100%;
+                height:100%;
+            }
+            input{
+                position: absolute;
+                width:100%;
+                height:100%;
+                z-index: 5;
+                top: 0;
+                opacity: 0;
+            }
+        }
+        .sczp{
+            width:8.69rem;
+            height:1.93rem;
+            margin-left:5.63rem;
+            margin-top: 7rem;
+            position: relative;
+            input{
+                position: absolute;
+                width:100%;
+                height:100%;
+                z-index: 5;
+                top: 0;
+                opacity: 0;
+            }
+
+            img{
+                width:100%;
+                height:100%;
+            }
+        }
+        .xzxb{
             position: absolute;
+            top: 21rem;
+            font-size: 0.74rem;
+            color: #fff;
+            left: 4.4rem;
+            height:1rem;
+            line-height: 1rem;
+            input{
+                width:0.8rem;
+                height:0.8rem;
+                margin-left:0.5rem;
+                vertical-align:middle;
+
+            }
+        }
+        .texts{
+            margin-top:0.4rem;
+            width:100%;
+            text-align: center;
+            font-size: 0.74rem;
+            color: #fff;
+        }
+        .upLoadBox{
+            width: 11.27rem;
+            height: 14.49rem;
+            background: #FFFFFF;
             margin: auto auto;
+            position: absolute;
             left: 0;
             right: 0;
-            bottom: 0;
             top: 0;
-            .texBox{
-                width: 100%;
-                height: 100%;
-                margin-top: 5rem;
-                letter-spacing: 0.08rem;
-                 >p{
+            bottom: 0;
+            .upLoadImg{
+                width: 9.98rem;
+                height: 13.20rem;
+                background-color: #424858;
+                position: absolute;
+                margin: auto auto;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                .texBox{
                     width: 100%;
-                    text-align: center;
-                    color: #fff;
+                    height: 100%;
+                    margin-top: 5rem;
+                    letter-spacing: 0.08rem;
+                    >p{
+                        width: 100%;
+                        text-align: center;
+                        color: #fff;
+                    }
+                    .hand{
+                        width: 1.36rem;
+                        position: absolute;
+                        left: 4.66rem;
+                        top: 8.45rem;
+                    }
+                    .circle{
+                        width: 0.579rem;
+                        position: absolute;
+                        height: 0.579rem;
+                        left: 4.8rem;
+                        top: 8.3rem;
+                    }
+
                 }
-                .hand{
-                    width: 1.36rem;
-                    position: absolute;
-                    left: 4.66rem;
-                    top: 8.45rem;
-                }
-               .circle{
-                    width: 0.579rem;
-                    position: absolute;  
-                    height: 0.579rem;
-                    left: 4.8rem;
-                    top: 8.3rem;
-                }
-                
+
             }
-           
+        }
+    }
+    /*观影留念*/
+    #customMuseumSouvenirTwo{
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        background-image: url('@{staticServer}/img/gyln2_02.png');
+        background-size: 100% 100%;
+        background-position-y: -1rem;
+        position: relative;
+        overflow: hidden;
+        .log{
+            width:5.3rem;
+            height:5.3rem;
+            margin-top:3rem;
+            margin-left:1.6rem;
+            img{
+                width:5.3rem;
+                height:5.3rem;
+            }
+            position: relative;
+            z-index: 3;
+        }
+        .photoBox{
+            width:11.43rem;
+            height:14.65rem;
+            background-color:#fff;
+            position: absolute;
+            left:4.31rem;
+            top:4.83rem;
+            box-shadow: 2px 2px 2px 2px #888;
+            img{
+                width:84%;
+                height:88%;
+                margin:auto auto;
+                position: absolute;
+                left:0;
+                right:0;
+                top:0;
+                bottom: 0;
+            }
+        }
+        .texts{
+            margin-top: 12rem;
+            width:100%;
+            text-align: center;
+            font-size: 0.74rem;
+            color: #ffffff;
+
+        }
+        .sczpewm{
+            width:8.08rem;
+            height:8.08rem;
+            margin-left: 6.63rem;
+            margin-top: 1.6rem;
+
+            img{
+                width:100%;
+                height:100%;
+            }
+        }
+        .sczp{
+            width:7.08rem;
+            height:1.93rem;
+            margin-left:2.41rem;
+            margin-top: 1rem;
+            float: left;
+            img{
+                width:100%;
+                height:100%;
+            }
+        }
+        .bctp{
+            margin-left:1rem;
         }
     }
 }
+
 //展览详情
 #exhibitionContent{
     width: 100%;
@@ -711,7 +873,7 @@ body .mint-header{
 
         >h2{
             color: #fff;
-            font-size: 0.80rem;
+            font-size: 0.99rem;
             text-align: center;
             margin-top: 6.44rem;
         }
@@ -787,6 +949,7 @@ body .mint-header{
         height: 100%;
         margin: 0 auto;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         .listBox{
             width: 8.05rem;
             height: 9.98rem;

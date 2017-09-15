@@ -9,14 +9,14 @@
 			</mt-swipe>
 		</div>
 		<div class="exhibitList">
-			<router-link to="MusemClassfication?type=hdzx&tittle=活动咨询">
+			<router-link to="MusemClassfication?type=hdzx&tittle=活动资讯">
 				<div class="exhibitBtn">
 					<img class="bjk" :src="imgUrl+'/img/juxin.png'" alt="">
 					<div class="gghdBtnBox">
-						活动咨询
+						活动资讯
 					</div>
 					<div class="imgBox">
-						<img :src="imgUrl+'/img/zlzx1_03.jpg'" alt="" />
+						<img :src="imgUrl+'/img/yjsj.png'" alt="" />
 					</div>
 				</div>
 			</router-link>
@@ -27,7 +27,7 @@
 						活动回顾
 					</div>
 					<div class="imgBox">
-						<img :src="imgUrl+'/img/zlzx3_03.jpg'" alt="" />
+						<img :src="imgUrl+'/img/wqhg.png'" alt="" />
 					</div>
 				</div>
 			</router-link>

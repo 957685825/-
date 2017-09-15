@@ -9,7 +9,7 @@
 			<div class="btnList">
 				<ul>
 					<li @click="audioPlay(dataList.audioUrl)" class="audioClass">
-						<audio id="audio" :src="hostUrl+dataList.audioUrl"></audio>
+						<audio id="audio" :src="videoUrl+dataList.audioUrl"></audio>
 						<img :src="imgUrl+'/img/yp.png'" alt="" />
 						<span>音频</span>
 					</li>
@@ -52,7 +52,9 @@
 	     		dataList: [],
 	     		hostUrl: '',
                 imgUrl:Api.STATIC_SERVER_HOST,
-			  	audioBool:false
+			  	audioBool:false,
+              videoUrl:'',
+              videoImgUrl:''
 	      }	
 	   	},
 	    components:{ //在再这里要注入我的组件
@@ -71,7 +73,7 @@
 			},
             gotoVideo(url) {
                 if(url){
-                    location.href = this.hostUrl + url
+                    location.href = this.videoUrl + url
 				}else{
                     $('.videoClass').css({opacity:'0.5'})
                     alert('没有相关内容')
@@ -90,8 +92,6 @@
 				}else{
                     $('.audioClass').css({opacity:'0.5'})
                     alert('没有相关内容')
-
-
                 }
 
 			},
@@ -118,10 +118,11 @@
 	    		Api.collection.collectionDetails(jsons).then(res=>{
 	    			this.hostUrl = res.data.url
 	    			this.dataList = res.data.result
+                    this.videoUrl = res.data.videoUrl
+                    this.videoImgUrl = res.data.videoImgUrl
 					this.initBtnStyle(this.dataList)
 
 	    		},err=>{})
-	    		
 
 	    }
   }

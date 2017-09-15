@@ -7,13 +7,13 @@
 				<img class="hxd hxddh" :src="imgUrl+'/img/tydh.png'" alt="">
 			</div>
 		</router-link>
-		<router-link to='exhibitionContent902?type=902hys'>
+		<a href='http://www.artronpano.com/scene/uyFuHuv8BDV38LWWmHAak8GP5w84LfmM/902//tour.html'>
 			<div class="huiyishi zt">
 				<span>会议室</span>
 				<img :src="imgUrl+'/img/hys001.png'"/>
-				<img class="hxd" :src="imgUrl+'/img/tydh.png'" alt="">
+				<img class="hxd hxddh" :src="imgUrl+'/img/tydh.png'" alt="">
 			</div>
-		</router-link>		
+		</a>
 	</div>
 </template>
 <script>
@@ -31,6 +31,7 @@ import Api from '../../../../api.js'
 					height:'3rem',
                     opacity:1
 				})
+            
 
 	    }
 	}

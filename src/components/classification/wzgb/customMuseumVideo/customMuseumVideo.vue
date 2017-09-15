@@ -8,10 +8,10 @@
 				</div>
 			</div>
 			<div class="rightBox">
-				<a :href="hostUrl+itme.filePath" v-for="itme in dataList">
+				<a :href="videoUrl+itme.filePath" v-for="itme in dataList">
 					<div class="btnList">
-						<img src="../../../../assets/img/abjj.png" alt="" />
-						<p>{{itme.fileDisplayName}}</p>
+						<img :src="videoImgUrl+itme.filePath+'?second=1&width=1000&height=564'" alt="" />
+						<p>{{itme.fileDisplayName.length>10?itme.fileDisplayName.substring(0,10).concat('....'):itme.fileDisplayName}}</p>
 						<!--<span>3:11</span>-->
 					</div>
 				</a>
@@ -30,7 +30,8 @@
 	      return {
 	     		dataList: [],
 	     		hostUrl: '',
-	     		
+				  videoUrl:'',
+				  videoImgUrl:''
 	      }	
 	   	},
 	    components:{ //在再这里要注入我的组件
@@ -45,6 +46,8 @@
 	    		Api.museumVideo.videoList().then(res=>{
 	    			this.hostUrl = res.data.url
 	    			this.dataList = res.data.List
+                    this.videoUrl = res.data.videoUrl
+                    this.videoImgUrl = res.data.videoImgUrl
 	    			console.log(res)
 	    		},err=>{})
 	    		

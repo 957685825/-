@@ -33,10 +33,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="videoBox">
+		<div class="videoBox" v-show="dataList.videoImgUrl != ''">
 			<div class="spbg">
 				<!--<img class="spBtn" @click="videoPlay($event)" :src="imgUrl+'/img/spbtm.png'"/>-->
-				<video  controls="controls" :src="hostUrl+dataList.videoImgUrl"  width="100%" height="100%" :poster="hostUrl+dataList.imgUrl" id="video">
+				<video  controls="controls" :src="videoUrl+dataList.videoImgUrl"  width="100%" height="100%" :poster="videoImgUrl+dataList.videoImgUrl+'?second=1&width=1000&height=564'" id="video">
 				</video>
 			</div>
 		</div>
@@ -63,7 +63,9 @@
 	     		selectBtnText: '展开',
 	     		selectBoolTrueText: '',
 	     		selectBoolFalseText: '',
-	     		imgUrl:Api.STATIC_SERVER_HOST
+	     		imgUrl:Api.STATIC_SERVER_HOST,
+			  	videoUrl:'',
+			    videoImgUrl:''
 	      }	
 	   	},
 	    components:{ //在再这里要注入我的组件
@@ -106,11 +108,17 @@
 	    		}
 	    		Api.exhibition.exhibitDetails(jsons).then(res=>{
 	    			this.hostUrl = res.data.url
+					this.videoUrl = res.data.videoUrl
+                    this.videoImgUrl = res.data.videoImgUrl
 	    			this.dataList = res.data.result
+                    this.selectBoolTrueText =  res.data.result.description
+					console.log(res)
 					if(res.data.result.description.length > 100){
                         this.selectBoolFalseText = res.data.result.description.substr(0,100).concat('....')
-					}this.selectBoolTrueText =  res.data.result.description
 
+					}else{
+					    this.selectBool = true
+					}
 
 	    		},err=>{})
 	    		

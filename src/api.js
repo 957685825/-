@@ -58,13 +58,13 @@ const COLLECTION_LIST = `${HOST}hgmuseum/iface/jk/getExArt`
  * 关博影像
  * type:gbyxlb
  **/
-const MUSEUM_VIDEO_LIST = `${HOST}/hgmuseum/iface/jk/lblist?type=gbyxlb`
+const MUSEUM_VIDEO_LIST = `${HOST}hgmuseum/iface/jk/lblist?type=gbyxlb`
 
 /*
  * 关于关博
  * type:类型
  **/
-const MUSEUM_ABOUT_DETAILS = `${HOST}/hgmuseum/iface/jk/jtinfo`
+const MUSEUM_ABOUT_DETAILS = `${HOST}hgmuseum/iface/jk/jtinfo`
 
 /*
  * 每日通关
@@ -86,7 +86,7 @@ const MUSEUM_EVERY_QUESTION = `${HOST}hgmuseum/hgwxtg/showFirstGswd`
  * answer：问题答案（int）
  *pageNo：问题的pageNo
  */
-const MUSEUM_EVERY_QUESTION_ANSWER = `${HOST}/hgmuseum/hgwxtg/doGswd`
+const MUSEUM_EVERY_QUESTION_ANSWER = `${HOST}	hgmuseum/hgwxtg/showGswd`
 /*
  *关事问答（下一题）
  *questionid：问题的id（string）

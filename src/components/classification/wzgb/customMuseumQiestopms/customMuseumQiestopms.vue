@@ -28,7 +28,7 @@
 			<div class="questions AllAnswer" v-show="AllAnswerBoole">
 				<div class="questionBox">
 					<div class="questions">
-						<p>您总积分为：356</p>
+						<p>您总积分为：{{totalCreditedNumber}}</p>
 					</div>
 				</div>
 				<div class="questionBox" v-for="itme in answerListData">
@@ -86,7 +86,8 @@ import { Indicator } from 'mint-ui';
               isDadui:'',
 			  isShowAnswer:false,
 			  noClick:false,
-			  answerListData:''
+			  answerListData:'',
+              totalCreditedNumber:''
 	      }
 	   	},
 	   	methods: {
@@ -100,50 +101,58 @@ import { Indicator } from 'mint-ui';
 
                     }else{
                         this.dataList.hgBranchs[index].isOk = !this.dataList.hgBranchs[index].isOk
-                    }
-                    var itmeId = this.dataList.hgBranchs[index].id
-                    this.answers.push(itmeId)
+                        this.$forceUpdate()
+						if(this.dataList.hgBranchs[index].isOk == true){
+                            var itmeId = this.dataList.hgBranchs[index].id
+                            this.answers.push(itmeId)
 
-                    this.$forceUpdate()
+						}else{
+                            this.answers.splice(index,1)
+						}
+                    }
+
+
+
 				}else{
 	      	        return
 				}
 
 	      	},
             nextQuestions() {
-                Indicator.open('加载中...');
-                setTimeout(function(){
+                //Indicator.open('加载中...');
                     if(this.answers != '') {
-                        var jsons = {
-                            questionid: this.questionId,
-                            answers: this.answers + '',
-                            pageNo: this.pageNo
-                        }
-                        this.answers = []
-                        $('.checkBox').css({"background-color": '#fff'})
-                        this.answerBoole = false
-                        this.noClick = false
-                        Api.every.everyQuestionAnswerNext(jsons).then(res => {
-                            Indicator.close();
-                            this.isShowAnswer = false
-                            this.dataList = res.data.bean
-                            this.questionId = res.data.bean.id
-                            this.pageNo = res.data.bean.pageNo
-                            if (res.data.isLast == true) {
-                                this.lastQuestionBoole = true
-                            }
-                            for (var i = 0; i < this.dataList.hgBranchs.length; i++) {
-                                this.dataList.hgBranchs[i].isOk = false
-                            }
+                           var jsons = {
+                               questionid: this.questionId,
+                               answers: this.answers + '',
+                               pageNo: this.pageNo
+                           }
 
-                        }, err => {
-                            alert('网络错误')
-                            Indicator.close();
-                        })
+                           $('.checkBox').css({"background-color": '#fff'})
+                           this.answerBoole = false
+                           this.noClick = false
+                           Api.every.everyQuestionAnswerNext(jsons).then(res => {
+                               Indicator.close();
+                               this.isShowAnswer = false
+                               this.dataList = res.data.bean
+                               this.questionId = res.data.bean.id
+                               this.pageNo = res.data.bean.pageNo
+                               if (res.data.isLast == true) {
+                                   this.lastQuestionBoole = true
+                               }
+                               for (var i = 0; i < this.dataList.hgBranchs.length; i++) {
+                                   this.dataList.hgBranchs[i].isOk = false
+                               }
+                               this.answers = []
+                           }, err => {
+                               alert('网络错误')
+                               Indicator.close()
+                           })
+
                     }else{
                         alert('请选择答案')
+                        Indicator.close()
                     }
-				},1000)
+
 			},
             AllShwoAnswer() {
 
@@ -160,7 +169,9 @@ import { Indicator } from 'mint-ui';
                             $('.btnsqb').hide()
                             $('.checkBox').css({"background-color": 'inherit'})
                             this.answerListData = res.data
+                            this.totalCreditedNumber= this.answerListData[0].totalCredit
 							for(var i = 0; i<this.answerListData.length;i++){
+
                                 if(this.answerListData[i].isDadui == false){
                                     this.answerListData[i].isDadui = '错误'
                                 }else{
@@ -191,6 +202,7 @@ import { Indicator } from 'mint-ui';
                     }
                     Api.every.everyQuestionAnswer(jsons).then(res=>{
                         if(res){
+                            console.log(res)
                             this.isDadui = res.data.isDadui
 							if(this.isDadui == true){
                                 this.isDadui = '正确'
@@ -202,7 +214,6 @@ import { Indicator } from 'mint-ui';
                                 if(itme.isAnswer == '1' || itme.isAnswer == 1){
                                     this.isAnswers.push(itme.branchNo)
 
-
                                 }
                                 if((index+1) == this.answerData.bean.hgBranchs.length){
                                     this.isAnswers.forEach(itmes=>{
@@ -211,10 +222,10 @@ import { Indicator } from 'mint-ui';
                                     })
                                 }
                             })
-s						}
+						}
 
                     },err=>{
-
+							alert('网络错误')
                     })
 				}else{
                     alert('请选择答案')

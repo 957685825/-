@@ -16,7 +16,7 @@
     export default {
         data () {
             return {
-                dataList: [],
+                dataList: '',
                 tittle: '',
                 hostUrl: ''
             }
@@ -37,7 +37,6 @@
                 this.dataList = res.data.info.data.content
                 //this.hostUrl = res.data.url
                 //console.log(res.data)
-				Object.assign
             },err=>{})
         }
     }
