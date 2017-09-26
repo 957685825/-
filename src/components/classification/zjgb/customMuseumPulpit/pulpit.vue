@@ -8,7 +8,7 @@
 			</mt-swipe>
 		</div>
 		<div class="exhibitList">
-			<router-link to="MusemClassfication?type=yjsj&tittle=研究 / 书籍">
+			<router-link to="MusemClassficationYjsj?type=yjsj&tittle=研究 / 书籍">
 				<div class="exhibitBtn">
 					<div class="ggjzbtnBox">
 						研究/书籍	
@@ -18,10 +18,10 @@
 					</div>
 				</div>
 			</router-link>
-			<router-link to="MusemClassfication?type=jzzx&tittle=讲座咨询">
+			<router-link to="MusemClassfication?type=jzzx&tittle=讲座资讯">
 				<div class="exhibitBtn">
 					<div class="ggjzbtnBox">
-						讲座咨询
+						讲座资讯
 					</div>
 					<div class="imgBox">
 						<img :src="imgUrl+'/img/jzzx.png'" alt="" />

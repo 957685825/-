@@ -1,9 +1,12 @@
 <template>
-	<div id="collectionDetails">
+	<div id="collectionDetails" >
 		<div class="shwoImgBox">
-			<div class="imgbox">
-				<img :src="hostUrl+dataList.artImgUrl" alt="" />
-			</div>
+			<!--:show-indicators="false"-->
+			<mt-swipe  :auto="5000" >
+				<mt-swipe-item v-for='itme in imgList'>
+					<img :src="hostUrl+itme" alt="" />
+				</mt-swipe-item>
+			</mt-swipe>
 		</div>
 		<div class="btnBoxList">
 			<div class="btnList">
@@ -54,7 +57,8 @@
                 imgUrl:Api.STATIC_SERVER_HOST,
 			  	audioBool:false,
               videoUrl:'',
-              videoImgUrl:''
+              videoImgUrl:'',
+			  imgList:''
 	      }	
 	   	},
 	    components:{ //在再这里要注入我的组件
@@ -116,6 +120,9 @@
 	    		}
 
 	    		Api.collection.collectionDetails(jsons).then(res=>{
+
+					this.imgList = res.data.imgUrl
+                    console.log(this.imgList.length)
 	    			this.hostUrl = res.data.url
 	    			this.dataList = res.data.result
                     this.videoUrl = res.data.videoUrl

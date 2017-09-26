@@ -1,6 +1,6 @@
 <template>
 	<!--基本陈列-->
-	<div id="jbclClassification" >
+	<div id="jbclClassificationYjsj" >
 		<div class="contents">
 			<div class="leftBox">
 				<div class="tittle">

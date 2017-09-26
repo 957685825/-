@@ -36,7 +36,7 @@
             Api.about.museumAbout(jsons).then(res=>{
                 this.dataList = res.data.info.data.content
                 //this.hostUrl = res.data.url
-                //console.log(res.data)
+                console.log(res.data)
             },err=>{})
         }
     }

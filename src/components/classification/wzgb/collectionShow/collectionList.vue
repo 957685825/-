@@ -3,11 +3,11 @@
 		<div class="content">
 			<div class="listBox" v-for="itme in dataList" @click="gotoDeatils(itme.artId)">
 				<div id="diamond">
-					<img class="zsj"  :src="imgUrl+'/img/zsj_03.png'"/>
+					<!--<img class="zsj"  :src="imgUrl+'/img/zsj_03.png'"/>-->
 					<div class="mask">
 					</div>
 					<img :src="hostUrl+itme.artImgUrl"/>
-					<img class="yxj" :src="imgUrl+'/img/yxj_03.png'" alt="" />
+					<!--<img class="yxj" :src="imgUrl+'/img/yxj_03.png'" alt="" />-->
 				</div>
 				<div class="tittle">
 					{{itme.artName.length>8?itme.artName.substring(0,8).concat('...'):itme.artName}}

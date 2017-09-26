@@ -1,7 +1,14 @@
 <template>
 	<div id="exhibitionContent">
 		<div class="imgBox">
-			<img :src="hostUrl+dataList.imgUrl" alt="" />
+			<!--<div class="swipeDiv">-->
+				<mt-swipe  :auto="4000" :show-indicators="false">
+					<mt-swipe-item v-for='itme in imgList'>
+						<img :src="hostUrl+itme" style="width: 100%;height: 100%;"/>
+					</mt-swipe-item>
+				</mt-swipe>
+			<!--</div>-->
+			<!--<img :src="hostUrl+dataList.imgUrl" alt="" />-->
 		</div>
 		<div class="contentBox">
 			<div class="textBoxList">
@@ -65,7 +72,8 @@
 	     		selectBoolFalseText: '',
 	     		imgUrl:Api.STATIC_SERVER_HOST,
 			  	videoUrl:'',
-			    videoImgUrl:''
+			    videoImgUrl:'',
+			  	imgList:''
 	      }	
 	   	},
 	    components:{ //在再这里要注入我的组件
@@ -111,6 +119,7 @@
 					this.videoUrl = res.data.videoUrl
                     this.videoImgUrl = res.data.videoImgUrl
 	    			this.dataList = res.data.result
+					this.imgList = res.data.imgList
                     this.selectBoolTrueText =  res.data.result.description
 					console.log(res)
 					if(res.data.result.description.length > 100){

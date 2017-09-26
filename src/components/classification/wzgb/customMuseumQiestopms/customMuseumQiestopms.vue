@@ -10,7 +10,7 @@
 						<div class="checkBox" @click="updataCheck(index,true)">
 							<img v-show="itme.isOk" :src="imgUrl+'/img/duigou.png'" alt="" />
 						</div>
-						<p>{{itme.branchNo}}&nbsp;:&nbsp;{{itme.id}}</p>
+						<p>{{itme.branchNo}}&nbsp;:&nbsp;{{itme.branchInfo}}</p>
 					</div>	
 				</div>
 			</div>
@@ -18,8 +18,8 @@
 			<div class="questions" v-show="answerBoole">
 				<div class="questionBox">
 					<div class="questions">
-						<p>本题题回答{{isDadui}}</p>
-						<p>答案为：{{isAnswers}}</p>
+						<p>本题题回答{{dadui}}</p>
+						<p>答案为：{{isAnswers | ToStr}}</p>
 						<p>您本次的积分为：{{answerData.increaseCredit}}分，总积分为：{{answerData.totalCredit}}</p>
 					</div>
 				</div>
@@ -83,11 +83,12 @@ import { Indicator } from 'mint-ui';
               totalCredit:'',//总积分
 			  answerData:'',//查看答案的数据
 			  isAnswers:[],
-              isDadui:'',
+              dadui:'',
 			  isShowAnswer:false,
 			  noClick:false,
 			  answerListData:'',
-              totalCreditedNumber:''
+              totalCreditedNumber:'',
+              ckda:0
 	      }
 	   	},
 	   	methods: {
@@ -124,7 +125,8 @@ import { Indicator } from 'mint-ui';
                            var jsons = {
                                questionid: this.questionId,
                                answers: this.answers + '',
-                               pageNo: this.pageNo
+                               pageNo: this.pageNo,
+                               ckda:this.ckda
                            }
 
                            $('.checkBox').css({"background-color": '#fff'})
@@ -143,6 +145,8 @@ import { Indicator } from 'mint-ui';
                                    this.dataList.hgBranchs[i].isOk = false
                                }
                                this.answers = []
+							   this.isAnswers = []
+                               this.ckda = 0
                            }, err => {
                                alert('网络错误')
                                Indicator.close()
@@ -194,6 +198,7 @@ import { Indicator } from 'mint-ui';
                     this.answerBoole = true
 					this.isShowAnswer = true
                     this.noClick = true
+                    this.ckda = 1
 					$('.checkBox').css({"background-color":'inherit'})
                     var jsons={
                         questionid: this.questionId,
@@ -203,25 +208,25 @@ import { Indicator } from 'mint-ui';
                     Api.every.everyQuestionAnswer(jsons).then(res=>{
                         if(res){
                             console.log(res)
-                            this.isDadui = res.data.isDadui
-							if(this.isDadui == true){
-                                this.isDadui = '正确'
+                            this.dadui = res.data.bean.dadui
+							if(this.dadui == true){
+                                this.dadui = '正确'
 							}else{
-                                this.isDadui = '错误'
+                                this.dadui = '错误'
 							}
+							console.log(this.dadui)
                             this.answerData = res.data
+                            _this.isAnswers=[]
+
                             this.answerData.bean.hgBranchs.forEach((itme,index)=>{
                                 if(itme.isAnswer == '1' || itme.isAnswer == 1){
-                                    this.isAnswers.push(itme.branchNo)
+                                    _this.isAnswers.push(itme.branchNo)
 
                                 }
-                                if((index+1) == this.answerData.bean.hgBranchs.length){
-                                    this.isAnswers.forEach(itmes=>{
-                                        this.isAnswers = ''
-                                        this.isAnswers += itmes
-                                    })
-                                }
+
                             })
+							console.log( _this.isAnswers)
+
 						}
 
                     },err=>{

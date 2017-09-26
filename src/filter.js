@@ -56,3 +56,14 @@ Vue.filter('subString',function(value){
 	}
 	
 })
+Vue.filter('ToStr',function(value){
+    if(value){
+    	var itme=''
+    	for(var i=0; i<value.length; i++){
+            itme+= value[i];
+		}
+
+        return itme;
+    }
+
+})

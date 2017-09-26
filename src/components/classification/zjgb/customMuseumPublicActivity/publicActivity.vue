@@ -11,7 +11,6 @@
 		<div class="exhibitList">
 			<router-link to="MusemClassfication?type=hdzx&tittle=活动资讯">
 				<div class="exhibitBtn">
-					<img class="bjk" :src="imgUrl+'/img/juxin.png'" alt="">
 					<div class="gghdBtnBox">
 						活动资讯
 					</div>
@@ -22,7 +21,6 @@
 			</router-link>
 			<router-link to="MusemClassfication?type=hdhg&tittle=活动回顾">
 				<div class="exhibitBtn">
-					<img class="bjk" :src="imgUrl+'/img/juxin.png'" alt="">
 					<div class="gghdBtnBox">
 						活动回顾
 					</div>

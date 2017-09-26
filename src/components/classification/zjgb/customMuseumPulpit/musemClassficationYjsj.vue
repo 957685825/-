@@ -9,7 +9,7 @@
 				</div>
 			</div>
 			<div class="rightBox">
-				<div v-for='itme in dataList' class="btnList"  @click="gotoDetails(itme.id,itme.title)">
+				<div v-for='itme in dataList' class="btnList"  @click="gotoDetails(itme.id)">
 					<div class="mask"></div>
 					<img :src="itme.image" alt="" />
 					<p>{{itme.title}}</p>
@@ -35,12 +35,11 @@
 	      
 	    },
 	    methods: {
-		   gotoDetails (id,titt){
-		   		location.href = '#MusemDetails?id='+id+'&tittle='+titt+'&type='+this.tittle
+		   gotoDetails (id){
+		   		location.href = '#MusemPulpitDetails?id='+id
 		   }
 	    },
 	    created(){//只执行一次
-            window.document.title = this.$route.query.tittle
 	    },
 	    mounted(){
 	    		this.tittle = this.$route.query.tittle
@@ -49,7 +48,6 @@
 	    		}
 	    		Api.pulpit.pulpitList(jsons).then(res=>{
 	    			this.dataList = res.data.List
-	    			console.log(res)
 	    		},err=>{})
 	    }
   }

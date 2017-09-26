@@ -2,12 +2,21 @@
 	<div id="Exhibition">
 		<router-link to='exhibitionContent902?type=902cc'>
 			<div class="chuanCang zt">
-				<span>船舱</span>
+				<span>902艇</span>
 				<img :src="imgUrl+'/img/hys001.png'"/>
 				<img class="hxd hxddh" :src="imgUrl+'/img/tydh.png'" alt="">
+
 			</div>
 		</router-link>
-		<a href='http://www.artronpano.com/scene/uyFuHuv8BDV38LWWmHAak8GP5w84LfmM/902//tour.html'>
+		<router-link to='exhibitionContent902?type=902jst'>
+			<div class="jisiting zt">
+				<span>缉私艇</span>
+				<img :src="imgUrl+'/img/hys001.png'"/>
+				<img class="hxd hxddh" :src="imgUrl+'/img/tydh.png'" alt="">
+				<img :src="imgUrl+'/img/xxtb.png'" class="jstxt" alt="">
+			</div>
+		</router-link>
+		<a href='http://www.artronpano.com/scene/uyFuHuv8BDV38LWWmHAak8GP5w84LfmM/902/tour.html'>
 			<div class="huiyishi zt">
 				<span>会议室</span>
 				<img :src="imgUrl+'/img/hys001.png'"/>

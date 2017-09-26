@@ -4,7 +4,7 @@
 		<div class="btn">
 			<ul>
 				<li style="color: red;">走进关博</li>
-				<li><router-link to='/aboutMusem'>关于关博</router-link></li>
+				<li><router-link to='/aboutMusem?type=gygblb'>关于关博</router-link></li>
 				<li><router-link to='/SystemInformation?type=xtzxlb'>系统资讯</router-link></li>
 				<li><router-link to="/exhibition?type=gbzllb">关博展览</router-link></li>
 				<li><router-link to='/Pulpit?type=gbjtlb'>关博讲坛</router-link></li>

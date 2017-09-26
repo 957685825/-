@@ -46,8 +46,10 @@ import musemIntroduce from '@/components/classification/zjgb/aboutCustomMuseum/m
 import Pulpit from '@/components/classification/zjgb/customMuseumPulpit/pulpit.vue'
 //走进关博/系统咨询
 import SystemInformation from '@/components/classification/zjgb/systemInformation/systemInformation.vue'
-//走进关博/关博讲坛（分类）
+//走进关博/关博讲坛（分类详情）
 import MusemClassfication from '@/components/classification/zjgb/classfication/musemClassfication.vue'
+//走进关博/关博讲坛（分类详情）
+import MusemClassficationYjsj from '@/components/classification/zjgb/classfication/musemClassficationYjsj.vue'
 //走进关博/关博 活动、咨询，讲坛（详情）
 import MusemDetails from '@/components/classification/zjgb/classfication/musemDetails.vue'
 //走进关博/公共活动（分类）
@@ -155,7 +157,7 @@ let router =  new vueRouter({
 		      name: 'exhibition902',
 		      component: exhibition902,
 		      meta: {
-		        title: '902艇展'
+		        title: '902艇展演'
 		      }
 		    },{ //玩转关博/关博影像
 		      path: '/CustomMuseumVideo',
@@ -169,7 +171,7 @@ let router =  new vueRouter({
 		      name: 'exhibitionContent902',
 		      component: exhibitionContent902,
 		      meta: {
-		        title: '902艇展'
+		        title: '902艇展演'
 		      }
 		    },{ //走进关博/关于关博
 		      path: '/aboutMusem',
@@ -206,7 +208,14 @@ let router =  new vueRouter({
 		      meta: {
 		        title: '关博讲坛'
 		      }
-		    },{ //走进关博/关博讲坛（详情）
+		    },{ //走进关博/关博讲坛（分类）
+            path: '/MusemClassficationYjsj',
+            name: 'MusemClassficationYjsj',
+            component: MusemClassficationYjsj,
+            meta: {
+                title: '研究shuji'
+            }
+        	},{ //走进关博/关博讲坛（详情）
 		      path: '/MusemDetails',
 		      name: 'MusemDetails',
 		      component: MusemDetails,

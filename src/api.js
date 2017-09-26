@@ -105,7 +105,15 @@ const MUSEUM_EVERY_QUESTION_ALL_ANSWER= `${HOST}hgmuseum/hgwxtg/showAllGswd`
 //if (!sessionIds) {
 //	alert('用户信息不存在!');  
 //	location.href='#/'
+const GYLN = `http://47.94.202.59:9090/faceSwapper/uploadImgOfMultipartFile`
 export default {
+	face:{
+		getFace:(jsons)=>{
+            return VueHttp.$http.post(GYLN,
+                qs.stringify(jsons)
+            )
+		}
+	},
 		every:{
 			everyClearance:()=>{
                 return VueHttp.$http.get(MUSEUM_EVERY_CLEARANCE)
