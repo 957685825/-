@@ -6,7 +6,8 @@
 		<div class="wcsdBtn">
 			文创商店&nbsp;&nbsp;>>
 		</div>
-		<div class="yqts">微店为第三方平台运营，与海关博物馆无关。</div>
+
+		<div class="yqts">网店为第三方平台运营，网店建设中，敬请期待。</div>
 	</div>
 </template>
 <script>

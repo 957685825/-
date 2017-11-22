@@ -14,30 +14,32 @@
 						关史陈列
 					</div>
 					<div class="imgBox">
-						<img :src="imgUrl+'/img/yjsj.png'" alt="" />
+						<img :src="imgUrl+'/img/gscl.png'" alt="" />
 					</div>
 				</div>
 			</router-link>
-			<router-link to="MusemClassfication?type=zxzl&tittle=最新展览">
-				<div class="exhibitBtn">
+			<!--to="MusemClassfication?type=zxzl&tittle=最新展览"-->
+			<!--<router-link to=''>-->
+				<div class="exhibitBtn" @click="fun">
 					<div class="xtzxbtnBox">
 						最新展览
 					</div>
 					<div class="imgBox">
-						<img :src="imgUrl+'/img/jzzx.png'" alt="" />
+						<img :src="imgUrl+'/img/ggtp.png'" alt="" />
 					</div>
 				</div>
-			</router-link>
-			<router-link to="MusemClassfication?type=hddt&tittle=活动动态">
-				<div class="exhibitBtn">
+			<!--</router-link>-->
+			<!--to="MusemClassfication?type=hddt&tittle=活动动态"-->
+			<!--<router-link to="">-->
+				<div class="exhibitBtn" @click="fun">
 					<div class="xtzxbtnBox">
 						活动动态
 					</div>
 					<div class="imgBox">
-						<img :src="imgUrl+'/img/wqhg.png'" alt="" />
+						<img :src="imgUrl+'/img/ggtp.png'" alt="" />
 					</div>
 				</div>
-			</router-link>
+			<!--</router-link>-->
 		</div>
 	</div>
 </template>
@@ -51,7 +53,11 @@
 	     		list:''
 	     		
 	      }	
-	   	},
+	   	},methods: {
+            fun (){
+                alert('建设中，敬请期待')
+            }
+        },
 	   	 mounted(){
 	    		var jsons = {
 	    			'type':this.$route.query.type

@@ -14,7 +14,10 @@
 				</div>
 				<div class="qdBtn" @click="register">
 					{{registerText}}
-				</div>
+				</div>				
+			</div>
+			<div class="jfdhBtn"  @click="gotoRegisterTotal">
+				积分兑换说明
 			</div>
 		</div>
 	</div>
@@ -57,9 +60,13 @@
                     alert('您今天已经签到，请明天再来')
 				}
 
+			},
+			gotoRegisterTotal(){
+				this.$router.push( { path : '/totalUse', query : { 'totalCredit' : this.everyRegisterData.totalCredit }})
 			}
         },
         created(){//只执行一次
+        	      
         },
         mounted(){
 

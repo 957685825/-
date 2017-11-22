@@ -20,10 +20,13 @@ import collectionList from '@/components/classification/wzgb/collectionShow/coll
 import collectionDetails from '@/components/classification/wzgb/collectionShow/collectionDetails.vue'
 //玩转关博/关事问答
 import customMuseumQiestopms from '@/components/classification/wzgb/customMuseumQiestopms/customMuseumQiestopms.vue'
+import testCustomMuseumQiestopms from '@/components/classification/wzgb/customMuseumQiestopms/testCustomMuseumQiestopms.vue'
 //玩转关博/关影留念i
 import customMuseumSouvenir from '@/components/classification/wzgb/customMuseumSouvenir/customMuseumSouvenir.vue'
 //关博服务/每日通关
 import everydayClearance from '@/components/classification/gbfw/everydayClearance/everydayClearance.vue'
+//关博服务/积分兑换说明
+import totalUse from '@/components/classification/gbfw/everydayClearance/totalUse.vue'
 //关博服务/参观指南
 import VisitorGuide from '@/components/classification/gbfw/visitorGuide/visitorGuide.vue'
 //关博服务/配套服务
@@ -100,14 +103,21 @@ let router =  new vueRouter({
 		      name: 'customMuseumQiestopms',
 		      component: customMuseumQiestopms,
 		      meta: {
-		        title: '关事问答'
+		        title: '关博问答'
+		      }
+		    },{ //关事问答
+		      path: '/testCustomMuseumQiestopms',
+		      name: 'testCustomMuseumQiestopms',
+		      component: testCustomMuseumQiestopms,
+		      meta: {
+		        title: '关博问答'
 		      }
 		    },{ //关影留念
 		      path: '/customMuseumSouvenir',
 		      name: 'customMuseumSouvenir',
 		      component: customMuseumSouvenir,
 		      meta: {
-		        title: '关影留念'
+		        title: '关服美拍'
 		      }
 		    }
 		    ,{ //基本陈列/展览详情
@@ -123,6 +133,13 @@ let router =  new vueRouter({
 		      component: everydayClearance,
 		      meta: {
 		        title: '每日通关'
+		      }
+		    },{ //关博服务/积分兑换
+		      path: '/totalUse',
+		      name: 'totalUse',
+		      component: totalUse,
+		      meta: {
+		        title: '总积分及兑换说明'
 		      }
 		    },{ //关博服务/参观指南.vue
 		      path: '/VisitorGuide',

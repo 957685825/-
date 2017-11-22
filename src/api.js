@@ -80,13 +80,15 @@ const MUSEUM_EVERY_REGISTER = `${HOST}hgmuseum/hgwxqd/checkSign`
  *关事问答
  */
 const MUSEUM_EVERY_QUESTION = `${HOST}hgmuseum/hgwxtg/showFirstGswd`
+const MUSEUM_EVERY_QUESTION_TEST = `http://192.168.127.51/hgmuseum/iface/hgwxtgtest/showFirstGswdTest?groupNo=1`
 /*
  *关事问答（查看答案）
  *questionid：问题的id（string）
  * answer：问题答案（int）
  *pageNo：问题的pageNo
  */
-const MUSEUM_EVERY_QUESTION_ANSWER = `${HOST}	hgmuseum/hgwxtg/showGswd`
+const MUSEUM_EVERY_QUESTION_ANSWER = `${HOST}hgmuseum/hgwxtg/showGswd`
+const MUSEUM_EVERY_QUESTION_ANSWER_TEST = `${HOST}hgmuseum/hgwxtg/showGswdTest`
 /*
  *关事问答（下一题）
  *questionid：问题的id（string）
@@ -94,6 +96,7 @@ const MUSEUM_EVERY_QUESTION_ANSWER = `${HOST}	hgmuseum/hgwxtg/showGswd`
  *pageNo：问题的pageNo
  */
 const MUSEUM_EVERY_QUESTION_ANSWER_NEXT = `${HOST}hgmuseum/hgwxtg/showNextGswd`
+const MUSEUM_EVERY_QUESTION_ANSWER_NEXT_TEST = `${HOST}hgmuseum/hgwxtg/showNextGswdTest`
 /*
  *关事问答（全部答案）
  *questionid：问题的id（string）
@@ -101,6 +104,16 @@ const MUSEUM_EVERY_QUESTION_ANSWER_NEXT = `${HOST}hgmuseum/hgwxtg/showNextGswd`
  *pageNo：问题的pageNo
  */
 const MUSEUM_EVERY_QUESTION_ALL_ANSWER= `${HOST}hgmuseum/hgwxtg/showAllGswd`
+const MUSEUM_EVERY_QUESTION_ALL_ANSWER_TEST= `${HOST}hgmuseum/hgwxtg/showAllGswdTest`
+
+/*
+ *积分兑换指南
+ */
+const TATOL_CONTENT= `${HOST}hgmuseum/iface/jk/jtinfo?type=jfjs`
+/*
+ *总积分查询
+ */
+const TATOL_ALL= `${HOST}hgmuseum/iface/jk/getTatolCredit`
 ////只要访问ajax的时候，没有这个用户信息，就跳到首页去登录获取用户信息
 //if (!sessionIds) {
 //	alert('用户信息不存在!');  
@@ -115,6 +128,12 @@ export default {
 		}
 	},
 		every:{
+			tatolContent:()=>{
+				 return VueHttp.$http.get(TATOL_CONTENT)
+			},
+			tatolALL:()=>{
+				 return VueHttp.$http.get(TATOL_ALL)
+			},
 			everyClearance:()=>{
                 return VueHttp.$http.get(MUSEUM_EVERY_CLEARANCE)
             },
@@ -123,15 +142,23 @@ export default {
 			},
 			everyQuestion:()=>{
 				return VueHttp.$http.get(MUSEUM_EVERY_QUESTION)
+			},everyQuestionTest:()=>{
+				return VueHttp.$http.get(MUSEUM_EVERY_QUESTION_TEST)
 			},
             everyQuestionAnswer:(jsons)=>{
                 return VueHttp.$http.get(MUSEUM_EVERY_QUESTION_ANSWER,{params:jsons})
+            },everyQuestionAnswerTest:(jsons)=>{
+                return VueHttp.$http.get(MUSEUM_EVERY_QUESTION_ANSWER_TEST,{params:jsons})
             },
             everyQuestionAnswerNext:(jsons)=>{
                 return VueHttp.$http.get(MUSEUM_EVERY_QUESTION_ANSWER_NEXT,{params:jsons})
+            },everyQuestionAnswerNextTest:(jsons)=>{
+                return VueHttp.$http.get(MUSEUM_EVERY_QUESTION_ANSWER_NEXT_TEST,{params:jsons})
             },
             everyQuestionAllAnswer:(jsons)=>{
                 return VueHttp.$http.get(MUSEUM_EVERY_QUESTION_ALL_ANSWER,{params:jsons})
+            },everyQuestionAllAnswerTest:(jsons)=>{
+                return VueHttp.$http.get(MUSEUM_EVERY_QUESTION_ALL_ANSWER_TEST,{params:jsons})
             }
 		},
 		about:{

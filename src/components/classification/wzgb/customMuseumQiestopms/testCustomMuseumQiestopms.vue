@@ -132,7 +132,7 @@ import { Indicator } from 'mint-ui';
                            $('.checkBox').css({"background-color": '#fff'})
                            this.answerBoole = false
                            this.noClick = false
-                           Api.every.everyQuestionAnswerNext(jsons).then(res => {
+                           Api.every.everyQuestionAnswerNextTest(jsons).then(res => {
                                Indicator.close();
                                this.isShowAnswer = false
                                this.dataList = res.data.bean
@@ -159,14 +159,13 @@ import { Indicator } from 'mint-ui';
 
 			},
             AllShwoAnswer() {
-
                 if(this.answers != '') {
                     var jsons = {
                         questionid: this.questionId,
                         answers: this.answers + ''
                     }
                     this.answers = []
-                    Api.every.everyQuestionAllAnswer(jsons).then(res => {
+                    Api.every.everyQuestionAllAnswerTest(jsons).then(res => {
                         if (res) {
                             this.AllAnswerBoole = true
                             this.noClick = true
@@ -202,7 +201,7 @@ import { Indicator } from 'mint-ui';
                         answers: this.answers+'',
                         pageNo: this.pageNo
                     }
-                    Api.every.everyQuestionAnswer(jsons).then(res=>{
+                    Api.every.everyQuestionAnswerTest(jsons).then(res=>{
                         if(res){
                             this.dadui = res.data.bean.dadui
 							if(this.dadui == true){
@@ -235,10 +234,11 @@ import { Indicator } from 'mint-ui';
 			}
 	     },
 	   	 mounted(){
-			 Api.every.everyQuestion().then(res=>{
+			 Api.every.everyQuestionTest().then(res=>{
 			     this.dataList = res.data
 				 this.questionId = res.data.id
 				 this.pageNo = res.data.pageNo
+				 console.log(res)
 				 for(var i = 0; i<this.dataList.hgBranchs.length;i++){
                      this.dataList.hgBranchs[i].isOk = false
 				 }

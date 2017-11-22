@@ -19,6 +19,7 @@
 					</div>
 				</div>
 			</router-link>
+			<!--to="/exhibitionClassification?type=wltbz&tittle=未来特别展"-->
 			<router-link to="/exhibitionClassification?type=wltbz&tittle=未来特别展">
 				<div class="exhibitBtn">
 					<div class="btnBox">
@@ -29,10 +30,11 @@
 					</div>
 				</div>
 			</router-link>
-			<router-link to="/exhibitionClassification?type=wqtbz&tittle=往期特别展">
+			<router-link to="/exhibitionClassification?type=wqtbz&tittle=往期回顾展">
 				<div class="exhibitBtn">
 					<div class="btnBox">
-						往期特别展
+						<!--往期特别展-->
+						往期回顾展
 					</div>
 					<div class="imgBox">
 						<img :src="imgUrl+'/img/zlzx2_03.jpg'" alt="" />
@@ -53,6 +55,11 @@ import Api from '../../../../api.js'
 	     		
 	      }	
 	   	},
+        methods: {
+            fun (id){
+                alert('建设中，敬请期待')
+            }
+        },
 	   	 mounted(){
 	    		var jsons = {
 	    			'type':this.$route.query.type

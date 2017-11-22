@@ -11,7 +11,7 @@
 				<div v-for='itme in dataList' class="btnList"  @click="gotoDetails(itme.exhibitId)">
 					<div class="mask"></div>
 					<img :src="hostUrl+itme.imgUrl" alt="" />
-					<p>{{itme.exhibitName.length>10? itme.exhibitName.substring(0,10).concat('...'):itme.exhibitName}}</p>
+					<p>{{itme.exhibitName}}</p>
 				</div>
 			</div>
 		</div>

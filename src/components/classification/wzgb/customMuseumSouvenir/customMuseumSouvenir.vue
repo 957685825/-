@@ -14,19 +14,26 @@
 			<div class="xzxb">
 				选择性别&nbsp;: <input  class="radio" type="radio" checked name="sex" data="男">&nbsp;男 <input  class="radio" type="radio" data="女" name="sex">&nbsp;女
 			</div>
+			<div class="xzxb xzfz">
+				选择服装&nbsp;:&nbsp;&nbsp;<select name="" id="tesetSelect">
+					<option value="1">制式夏装</option>
+					<option value="3">制式冬装</option>
+					<option value="2">查验服</option>
+					
+				</select>
+			</div>
 			<div class="sczp">
 				<img :src="imgUrl+'/img/sczp.png'" alt="">
 				<input type="text" name="userId" value="2165817"/>
 				<input type="file" name="imgTwo" class="imgTwo" @change="updataTwo"  />
 			</div>
 			<div class="texts">
-				请上传正面、半身证件照
+				上传光线均匀、面容清晰无遮挡的正面照片，效果更佳。
 			</div>
 			<mt-actionsheet
 					:actions="actions"
 					v-model="sheetVisible">
 			</mt-actionsheet>
-
 		</div>
 		<div id="customMuseumSouvenirTwo" v-show="isShowImg == true">
 			<div class="log">
@@ -105,11 +112,13 @@
                                 sex = 0
                             }
                             vm.isShowImg = true
+                            var clothes = $("#tesetSelect").find("option:selected").val()
                             var formData = new FormData();
                             var userId = $("userId").val();
                             formData.append("file", $('.imgOne').get(0).files[0])
                             formData.append("userId", userId)
                             formData.append("sex", sex)
+                            formData.append("templateId", clothes)
                             console.log(formData)
                             $.ajax({
                                 url: 'http://47.94.202.59:9090/faceSwapper/uploadImgOfMultipartFile',
@@ -171,12 +180,14 @@
                             }else{
                                 sex = 0
                             }
+                            var clothes = $("#tesetSelect").find("option:selected").val()
                             vm.isShowImg = true
                             var formData = new FormData();
                             var userId = $("userId").val();
                             formData.append("file",$('.imgTwo').get(0).files[0])
                             formData.append("userId",userId)
                             formData.append("sex",sex)
+                            formData.append("templateId",clothes)
                             $.ajax({
                                 url : 'http://47.94.202.59:9090/faceSwapper/uploadImgOfMultipartFile',
                                 type : 'POST',

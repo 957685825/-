@@ -2,10 +2,12 @@
 	<div id="exhibitionContent">
 		<div class="imgBox">
 			<!--<div class="swipeDiv">-->
-				<mt-swipe  :auto="4000" :show-indicators="false">
-					<mt-swipe-item v-for='itme in imgList'>
+				<mt-swipe  :auto="8000" :show-indicators="false">
+					<mt-swipe-item v-for='(itme,index) in imgList'>
 						<img :src="hostUrl+itme" style="width: 100%;height: 100%;"/>
+						<div class="lbwz"><p>{{index+1}} /<span>{{imgList.length}}</span></p></div>
 					</mt-swipe-item>
+
 				</mt-swipe>
 			<!--</div>-->
 			<!--<img :src="hostUrl+dataList.imgUrl" alt="" />-->

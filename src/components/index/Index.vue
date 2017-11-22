@@ -17,6 +17,7 @@
 				<li><router-link to="/collectionList">藏品鉴赏</router-link></li>
 				<li><router-link to="/customMuseumSouvenir">关影留念</router-link></li>
 				<li><router-link to="/customMuseumQiestopms">关事问答</router-link></li>
+				<li><router-link to="/testCustomMuseumQiestopms">关事问答测试</router-link></li>
 			</ul>
 
 			<ul>
